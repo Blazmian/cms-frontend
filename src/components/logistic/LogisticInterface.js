@@ -14,9 +14,9 @@ const Logistic = () => {
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton
+                            color="black"
                             size="large"
                             edge="start"
-                            color="black"
                             aria-label="menu"
                             sx={{ mr: 2 }}
                         >
