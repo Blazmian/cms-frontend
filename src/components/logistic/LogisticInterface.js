@@ -19,7 +19,7 @@ const Logistic = () => {
                 <Route path='/eventos' element={<NextEvent />} />
                 <Route path='/eventos_cancelados' element={<CancelledEvents />} />
             </Routes>
-            <Container style={{ textAlign: 'center' }}>
+            <Container style={{ textAlign: 'center', bg:'dark', variant:'dark'}}>
                 Copyright © 2023 Cluster Minero de Sonora
             </Container>
         </>
