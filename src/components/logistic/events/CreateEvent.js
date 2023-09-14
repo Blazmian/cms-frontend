@@ -1,6 +1,6 @@
 import { CDBBox } from "cdbreact"
 import { useState } from "react"
-import { Form, Modal, Button } from "react-bootstrap"
+import { Modal, Button } from "react-bootstrap"
 
 const CreateEvent = ({ show, handleClose }) => {
 
@@ -12,7 +12,6 @@ const CreateEvent = ({ show, handleClose }) => {
 
     return (
         <>
-            return (
             <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Crear Evento</Modal.Title>
@@ -116,7 +115,6 @@ const CreateEvent = ({ show, handleClose }) => {
                 </Modal.Footer>
 
             </Modal>
-            )
         </>
     )
 

@@ -1,4 +1,4 @@
-port { CDBBox } from "cdbreact"
+import { CDBBox } from "cdbreact"
 import { useState } from "react"
 import { Form, Modal, Button } from "react-bootstrap"
 
