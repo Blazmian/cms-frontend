@@ -21,7 +21,7 @@ const Logistic = () => {
                 <Container className='m-0 p-0'>
                     <Routes>
                         <Route path='/eventos/*' element={<UpcomingEvents />} />
-                        <Route exact path='/eventos/:id/' element={<ViewEvent />} />
+                        <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
                         <Route path='/eventos_cancelados' element={<CancelledEvents />} />
                     </Routes>
                 </Container>
