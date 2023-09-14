@@ -1,5 +1,5 @@
 import React from 'react';
-import { CDBTable, CDBTableHeader, CDBTableBody, CDBContainer, CDBBox } from 'cdbreact';
+import { CDBTable, CDBTableHeader, CDBTableBody, CDBContainer } from 'cdbreact';
 const Assistant = () => {
     return (
         <>
