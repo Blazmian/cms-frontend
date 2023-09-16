@@ -32,15 +32,15 @@ const ViewEvent = () => {
                                 Domingo 1 de enero del 2024 (XX días)
                             </CDBBox>
                             <CDBBox display='flex' flex='fill' alignItems='center'>
-                                <CDBIcon className='ms-5' far icon='clock' display='flex' flex='fill' />
+                                <CDBIcon className='ms-5' far icon='clock' />
                                 00:00 p.m
                             </CDBBox>
                             <CDBBox display='flex' flex='fill' alignItems='center'>
-                                <CDBIcon className='ms-5' icon='map-marker-alt' display='flex' flex='fill' />
+                                <CDBIcon className='ms-5' icon='map-marker-alt' />
                                 Hermosillo, Sonora
                             </CDBBox>
                             <CDBBox display='flex' flex='fill' alignItems='center'>
-                                <CDBIcon className='ms-5' icon='link' display='flex' flex='fill' />
+                                <CDBIcon className='ms-5' icon='link' />
                                 https://meet.google.com
                             </CDBBox>
                         </CDBBox>
