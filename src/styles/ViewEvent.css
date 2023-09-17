@@ -1,0 +1,13 @@
+.nav-link-clicked div {
+    background-color: #494949;
+    border-radius: 20px;
+}
+
+.nav-link-clicked div h5 {
+    color: white;
+}
+
+.nav-link-disabled div h5 {
+    font-weight: bold;
+    color: #606060;
+}

@@ -19,20 +19,20 @@ const LogisticSideBar = () => {
                 <hr className='mt-3 mb-0' style={{ color: '#3E3E3E' }} />
             </div>
             <div style={{ maxHeight: 'calc(100vh - 200px)' }}>
-                <Menu mode="inline" style={{ background: '#1A1A1A' }} theme='dark' defaultSelectedKeys={['1']}>
+                <Menu mode="inline" style={{ background: '#1A1A1A' }} theme='dark'>
                     <Menu.SubMenu title="Eventos" icon={<CalendarOutlined />}>
                         <Menu.Item key="1">
-                            <NavLink to='/logistica/eventos' style={{ textDecoration: 'none' }}>
+                            <NavLink to='/logistica/eventos' style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'activeClicked' : ""}>
                                 Eventos Próximos
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="2">
-                            <NavLink to='/logistica/eventos-concluidos' style={{ textDecoration: 'none' }}>
+                            <NavLink to='/logistica/eventos-concluidos' style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'activeClicked' : ""}>
                                 Eventos Concluidos
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="3">
-                            <NavLink to='/logistica/eventos-cancelados' style={{ textDecoration: 'none' }}>
+                            <NavLink to='/logistica/eventos-cancelados' style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'activeClicked' : ""}>
                                 Eventos Cancelados
                             </NavLink>
                         </Menu.Item>

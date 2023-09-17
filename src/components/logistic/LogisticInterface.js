@@ -14,7 +14,7 @@ const Logistic = () => {
             <NavBarCMS />
             <Container className='d-flex p-0' fluid style={{ flex: 1 }}>
                 <LogisticSideBar />
-                <Container className='m-0 p-0' fluid>
+                <Container className='m-0 p-0' fluid style={{ height: 'calc(100vh - 100px)', overflowY: 'auto' }}>
                     <Routes>
                         <Route path='/eventos/*' element={<UpcomingEvents />} />
                         <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
