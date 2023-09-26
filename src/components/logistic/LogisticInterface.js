@@ -6,6 +6,8 @@ import CancelledEvents from './events/CancelledEvents';
 import ViewEvent from './events/ViewEvent';
 import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
+import UpcomingAssistants from './assistants/UpcomingAssistants';
+import ViewAssistants from './assistants/ViewAssistants';
 
 const Logistic = () => {
 
@@ -19,6 +21,8 @@ const Logistic = () => {
                         <Route path='/eventos/*' element={<UpcomingEvents />} />
                         <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
                         <Route path='/eventos-cancelados' element={<CancelledEvents />} />
+                        <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
+                        <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
                     </Routes>
                 </Container>
             </Container>
