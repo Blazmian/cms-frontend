@@ -10,6 +10,8 @@ import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
 import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
+import UpcomingProviders from './providers/UpcomingProviders';
+import ViewProvider from './providers/ViewProvider';
 
 const Logistic = () => {
 
@@ -27,6 +29,8 @@ const Logistic = () => {
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
                         <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
                         <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
+                        <Route path='/proveedores/*' element={<UpcomingProviders/>} />
+                        <Route exact path='/proveedores/:id/*' element={<ViewProvider/>} />
                     </Routes>
                 </Container>
             </Container>
