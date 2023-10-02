@@ -9,9 +9,9 @@ import { Layout, Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 
 const LogisticSideBar = () => {
-
+   
     const { Sider } = Layout;
-
+    
     return (
         <Sider width={200} style={{ background: '#1A1A1A', overflowY: 'auto' }}>
             <div className='p-3' style={{ backgroundColor: '#1A1A1A', color: 'white' }}>
