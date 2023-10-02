@@ -1,6 +1,7 @@
 import { CDBBox, CDBIcon } from 'cdbreact'
 import { Button, Container, Stack } from 'react-bootstrap'
 import EditAssistant from './EditAssistant';
+import ViewAssistedEvents from './ViewAssistedEvents';
 import { useState } from 'react';
 
 
@@ -11,9 +12,15 @@ const ViewAssistants = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // For modal component
+    const [showAssistedEvents, setShowAssistedEvents] = useState(false);
+    const handleCloseAssistedEvents = () => setShowAssistedEvents(false);
+    const handleShowAssistedEvents = () => setShowAssistedEvents(true);
+
     return (
         <>
             <EditAssistant show={show} handleClose={handleClose} />
+            <ViewAssistedEvents show={showAssistedEvents} handleClose={handleCloseAssistedEvents} />
             <h2 style={{ margin: '10px' }}>Visualizar auxiliar</h2>
             <hr />
             <Container fluid className='m-0 pt-4 px-4 pb-3 d-flex align-items-center'>
@@ -50,7 +57,7 @@ const ViewAssistants = () => {
             </Container>
             <hr />
             <Button variant="secondary" style={{ marginLeft: '35px', marginTop: '15px' }}>Regresar</Button>
-            <Button variant="primary" style={{ marginLeft: '900px', marginTop: '15px' }}>Eventos auxiliados</Button>
+            <Button variant="primary" style={{ marginLeft: '900px', marginTop: '15px' }} onClick={handleShowAssistedEvents}>Eventos auxiliados</Button>
             <Button variant="primary" style={{ marginLeft: '35px', marginTop: '15px' }} onClick={handleShow}>Editar</Button>
         </>
     )
