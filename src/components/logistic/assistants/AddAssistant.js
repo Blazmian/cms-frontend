@@ -6,7 +6,7 @@ const AddAssistant = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Agregar auxiliar</Modal.Title>
                 </Modal.Header>
