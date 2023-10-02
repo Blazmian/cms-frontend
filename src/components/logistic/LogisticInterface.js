@@ -6,6 +6,7 @@ import CancelledEvents from './events/CancelledEvents';
 import ViewEvent from './events/ViewEvent';
 import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
+import ViewInventory from './inventory/ViewInventory';
 
 const Logistic = () => {
 
@@ -19,6 +20,7 @@ const Logistic = () => {
                         <Route path='/eventos/*' element={<UpcomingEvents />} />
                         <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
                         <Route path='/eventos-cancelados' element={<CancelledEvents />} />
+                        <Route path='/inventario/*' element={<ViewInventory />} />
                     </Routes>
                 </Container>
             </Container>

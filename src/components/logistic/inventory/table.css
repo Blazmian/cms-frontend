@@ -1,0 +1,34 @@
+main .table-inv{
+    margin-top: 1.3rem;
+}
+
+main .table-inv h2{
+    margin-bottom: 0.8rem;
+}
+
+main .table-inv table{
+    background-color: var(--color-gray);
+    width: 100%;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+}
+
+main .table-inv table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .table-inv table tbody tr:last-child td{
+    border: none;
+}
+
+main .table-inv a{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
