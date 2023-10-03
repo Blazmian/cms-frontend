@@ -5,7 +5,6 @@ import "./App.css";
 import RegisterEvent from './components/RegisterEvent';
 import { Toaster } from 'react-hot-toast'
 import Login from './components/Login.js';
-import { ForgotPassword } from './components/ForgotPassword';
 import QRegisterEvent from './components/QRegisterEvent';
 
 const App = () => {

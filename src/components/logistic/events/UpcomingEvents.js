@@ -19,7 +19,6 @@ const UpcomingEvents = () => {
     const getEvents = async () => {
         const res = await axios.get(urls.getUpcomingEvents)
         setEvents(res.data)
-        console.log(res.data)
     }
 
     return (

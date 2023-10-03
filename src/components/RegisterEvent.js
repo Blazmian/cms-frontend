@@ -65,20 +65,20 @@ const RegisterEvent = () => {
                             <Container className="d-flex justify-content-center">
                                 <Button>Registrarse</Button>
                             </Container>
-                    </Form>
-                </Container>
-                <Container style={{ width: '50%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center' }}>
-                    <CDBBox display="flex" flex="fill" justifyContent="center" mt={5} mb={3}>
-                        <img
-                            src="https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg"
-                            alt="Logo Evento"
-                            width={200}
-                            height={200}
-                            style={{ borderRadius: '100px' }}
-                        />
-                    </CDBBox>
-                    <h3>Nombre del Evento</h3>
-                    <h6 style={{ textAlign: 'justify' }} className="mx-5 fw-normal my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
+                        </Form>
+                    </Container>
+                    <Container style={{ width: '50%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center' }}>
+                        <CDBBox display="flex" flex="fill" justifyContent="center" mt={5} mb={3}>
+                            <img
+                                src="https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg"
+                                alt="Logo Evento"
+                                width={200}
+                                height={200}
+                                style={{ borderRadius: '100px' }}
+                            />
+                        </CDBBox>
+                        <h3>Nombre del Evento</h3>
+                        <h6 style={{ textAlign: 'justify' }} className="mx-5 fw-normal my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
                         <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5">
                             <CDBIcon far icon="calendar" />
                             <h6 className="fw-normal ms-3 mb-0">Domingo 1 de enero del 2024 (XX días)</h6>

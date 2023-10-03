@@ -1,13 +1,31 @@
 import { CDBBox, CDBIcon } from 'cdbreact'
 import { Button, Container, Stack } from 'react-bootstrap'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes, useParams } from 'react-router-dom'
 import InterestedPerson from './viewEvent/InterestedPerson'
 import Providers from './viewEvent/Providers'
 import Assistant from './viewEvent/Assistant'
 import Sponsor from './viewEvent/Sponsor'
 import '../../../styles/ViewEvent.css'
+import { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
+import { ApiUrls } from '../../../tools/ApiUrls'
+import { convertDate, convertHour } from '../../../tools/Methods'
 
 const ViewEvent = () => {
+
+    const { id } = useParams()
+    const [eventInformation, setEventInformation] = useState([])
+    const urls = useContext(ApiUrls)
+
+    useEffect(() => {
+        getEventInfo()
+    }, [id])
+
+    const getEventInfo = async () => {
+        const res = await axios.get(urls.getOneEvent + id)
+        setEventInformation(res.data)
+    }
+
     return (
         <>
             <Container fluid className='m-0 pt-4 px-4 pb-3 d-flex align-items-center' style={{ backgroundColor: '#EFEFEF' }}>
@@ -20,45 +38,53 @@ const ViewEvent = () => {
                     className='mx-5'
                 />
                 <Container fluid>
-                    <h3 className={'fw-bold'}>Vista del evento 1</h3>
-                    <h5 className='fs-6' style={{ textAlign: 'justify' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+                    <h3 className={'fw-bold'}>{eventInformation.event_name}</h3>
+                    <h5 className='fs-6' style={{ textAlign: 'justify' }}>{eventInformation.description}</h5>
                     <CDBBox style={{ fontSize: '13px' }} display='flex' flex='fill' alignItems='center'>
                         <CDBBox display='flex' flex='fill' alignItems='center'>
                             <CDBIcon far icon='calendar' />
-                            Domingo 1 de enero del 2024 (XX días)
+                            {convertDate(eventInformation.date)}
                         </CDBBox>
                         <CDBBox display='flex' flex='fill' alignItems='center'>
                             <CDBIcon far icon='clock' />
-                            00:00 p.m
+                            {eventInformation && eventInformation.hour && convertHour(eventInformation.hour)}
                         </CDBBox>
-                        <CDBBox display='flex' flex='fill' alignItems='center'>
-                            <CDBIcon icon='map-marker-alt' />
-                            Hermosillo, Sonora
-                        </CDBBox>
-                        <CDBBox display='flex' flex='fill' alignItems='center'>
-                            <CDBIcon icon='link' />
-                            https://meet.google.com
-                        </CDBBox>
+                        {eventInformation && eventInformation.type === 'Presencial' ?
+                            <CDBBox display='flex' flex='fill' alignItems='center'>
+                                <CDBIcon icon='map-marker-alt' />
+                                {eventInformation.place}
+                            </CDBBox>
+                            :
+                            <></>
+                        }
+                        {eventInformation && eventInformation.type === 'Virtual' ?
+                            <CDBBox display='flex' flex='fill' alignItems='center'>
+                                <CDBIcon icon='link' />
+                                {eventInformation.link}
+                            </CDBBox>
+                            :
+                            <></>
+                        }
                     </CDBBox>
                 </Container>
             </Container>
             <Container className='d-flex justify-content-center py-2' fluid style={{ backgroundColor: '#D9D9D9' }}>
-                <NavLink to={'/logistica/eventos/1/personas-interesadas'} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
+                <NavLink to={`/logistica/eventos/${id}/personas-interesadas`} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
                     <div className='p-1'>
                         <h5 className='m-0 mx-5'>Personas Interesadas</h5>
                     </div>
                 </NavLink>
-                <NavLink to={'/logistica/eventos/1/proveedores'} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
+                <NavLink to={`/logistica/eventos/${id}/proveedores`} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
                     <div className='p-1'>
                         <h5 className='m-0 mx-5'>Proveedores</h5>
                     </div>
                 </NavLink>
-                <NavLink to={'/logistica/eventos/1/patrocinadores'} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
+                <NavLink to={`/logistica/eventos/${id}/patrocinadores`} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
                     <div className='p-1'>
                         <h5 className='m-0 mx-5'>Patrocinadores</h5>
                     </div>
                 </NavLink>
-                <NavLink to={'/logistica/eventos/1/staff'} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
+                <NavLink to={`/logistica/eventos/${id}/staff`} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
                     <div className='p-1'>
                         <h5 className='m-0 mx-5'>Staff</h5>
                     </div>
