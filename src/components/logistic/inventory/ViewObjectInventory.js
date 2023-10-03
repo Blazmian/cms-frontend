@@ -68,7 +68,6 @@ const ViewObjectInventory = ({ show, handleClose }) => {
                         </div>
                     </CDBBox>
                 </Modal.Body>
-
                 <Modal.Footer>
                     <Button variant="secondary">Cancelar</Button>
                     <Button variant="primary">Eliminar</Button>
@@ -76,7 +75,7 @@ const ViewObjectInventory = ({ show, handleClose }) => {
                 </Modal.Footer>
 
             </Modal>
-        </>
+        </> 
     )
 }
 
