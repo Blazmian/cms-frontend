@@ -23,7 +23,6 @@ const ViewInventory = () => {
     return (
         <>
             <ViewObjectInventory show={show} handleClose={handleClose} />
-
             <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Inventario</h3>
@@ -56,8 +55,8 @@ const ViewInventory = () => {
                                 return search.toLowerCase() === '' 
                                     ? item 
                                     : item.object_name.toLowerCase().includes(search);
-                        })
-                        .map((item) =>(
+
+                        }).map((item) =>(
                         <tr key={item.id}>
                             <td>{item.object_name}</td>
                             <td>{item.description}</td>
@@ -68,7 +67,6 @@ const ViewInventory = () => {
                                 </td>
                         </tr>
                         ))}
-                        
                     </CDBTableBody>
                 </CDBTable>
             </div>

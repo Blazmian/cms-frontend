@@ -67,7 +67,7 @@ const RegisterEvent = () => {
 
                     </Form>
                 </Container>
-                <Container style={{ width: '30%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center' }}>
+                <Container style={{ width: '50%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center' }}>
                     <CDBBox display="flex" flex="fill" justifyContent="center" mt={5} mb={3}>
                         <img
                             src="https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg"

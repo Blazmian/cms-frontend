@@ -36,9 +36,7 @@ const EditInventory = ({ show, handleClose }) => {
                     <Button variant="secondary">Cancelar</Button>
                     <Button variant="primary">Crear</Button>
                 </Modal.Footer>
-
             </Modal>
-            
         </>
     )
 

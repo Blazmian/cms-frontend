@@ -15,60 +15,59 @@ const ViewObjectInventory = ({ show, handleClose }) => {
 
                 <Modal.Body>
                 <CDBBox  display='flex' flex='column' style={{ backgroundColor: '#ABABAB', borderRadius:'5px' }}>
-                <CDBBox  display='flex' flex='fill' style={{ backgroundColor: '#D9D9D9' }} my={3}>
-                    <h2 style={{marginTop:'5px', marginLeft:'6px',fontWeight:'bold', fontSize:'28px', color:'#3F3E3E'}}>Pizarrón</h2>
-                </CDBBox>
-                <div style={{ borderRadius: '10px', overflow: 'hidden', width:'95%', marginLeft:'auto', marginRight:'auto', marginBottom:'10px'}}>
-                    <CDBTable responsive maxHeight="32vh" scrollY className="mb-0">
-                        <CDBTableHeader>
-                            <tr class="table-dark">
-                                <th>Estado</th>
-                                <th>Poseedor</th>
-                                <th>Fecha</th>
-                            </tr>
-                            </CDBTableHeader>
-                            <CDBTableBody>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>En uso para evento</td>
-                                <td>Erick J.</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            </CDBTableBody>
+                    <CDBBox  display='flex' flex='fill' style={{ backgroundColor: '#D9D9D9' }} my={3}>
+                        <h2 style={{marginTop:'5px', marginLeft:'6px',fontWeight:'bold', fontSize:'28px', color:'#3F3E3E'}}>Pizarrón</h2>
+                    </CDBBox>
+                        <div style={{ borderRadius: '10px', overflow: 'hidden', width:'95%', marginLeft:'auto', marginRight:'auto', marginBottom:'10px'}}>
+                            <CDBTable responsive maxHeight="32vh" scrollY className="mb-0">
+                                <CDBTableHeader>
+                                    <tr class="table-dark">
+                                        <th>Estado</th>
+                                        <th>Poseedor</th>
+                                        <th>Fecha</th>
+                                    </tr>
+                                </CDBTableHeader>
+                                    <CDBTableBody>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>En uso para evento</td>
+                                            <td>Erick J.</td>
+                                            <td>DD/MM/AAAA</td>
+                                        </tr>
+                                    </CDBTableBody>
                             </CDBTable>
-                    </div>
+                        </div>
                     </CDBBox>
                 </Modal.Body>
-
                 <Modal.Footer>
                     <Button variant="secondary">Cancelar</Button>
                     <Button variant="primary">Eliminar</Button>
@@ -76,10 +75,8 @@ const ViewObjectInventory = ({ show, handleClose }) => {
                 </Modal.Footer>
 
             </Modal>
-        </>
-        
+        </> 
     )
-
 }
 
 export default ViewObjectInventory
