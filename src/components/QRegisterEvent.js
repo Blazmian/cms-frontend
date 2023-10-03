@@ -20,7 +20,7 @@ const QRegisterEvent = () => {
                                     viewBox={`0 0 500 500`}
                                     />
                                 </div>
-                        </Container>
+                    </Container>
 
                         <Container style={{ width: '60%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center'}}>
                     <CDBBox display="flex" flex="fill" justifyContent="center" mt={5} mb={3}>
