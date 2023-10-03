@@ -6,6 +6,8 @@ import CancelledEvents from './events/CancelledEvents';
 import ViewEvent from './events/ViewEvent';
 import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
+import Providers from './providers/Providers';
+import CreateEvent from './events/CreateEvent';
 import ViewInventory from './inventory/ViewInventory';
 import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
@@ -22,8 +24,10 @@ const Logistic = () => {
                 <Container className='m-0 p-0' fluid style={{ height: 'calc(100vh - 100px)', overflowY: 'auto' }}>
                     <Routes>
                         <Route path='/eventos/*' element={<UpcomingEvents />} />
+                        <Route path='/crear-evento' element={<CreateEvent />} />
                         <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
                         <Route path='/eventos-cancelados' element={<CancelledEvents />} />
+                        <Route path='/proveedores/*' element={<Providers />} />
                         <Route path='/inventario/*' element={<ViewInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorList />} />
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />

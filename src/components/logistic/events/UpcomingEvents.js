@@ -1,49 +1,41 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CDBBox, CDBIcon } from 'cdbreact';
-import { Button, Container } from 'react-bootstrap';
-import CreateEvent from './CreateEvent';
+import { Button } from 'react-bootstrap';
+import axios from 'axios'
+import ShowUpcomingEvents from './ShowUpcomingEvents';
+import { ApiUrls } from '../../../tools/ApiUrls';
+import { useNavigate } from 'react-router-dom';
 
 const UpcomingEvents = () => {
 
-    // For modal component
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [events, setEvents] = useState([])
+    const navigate = useNavigate('')
+    const urls = useContext(ApiUrls)
+
+    useEffect(() => {
+        getEvents()
+    }, [])
+
+    const getEvents = async () => {
+        const res = await axios.get(urls.getUpcomingEvents)
+        setEvents(res.data)
+        console.log(res.data)
+    }
 
     return (
         <>
-            <CreateEvent show={show} handleClose={handleClose} />
             <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Listado de Eventos</h3>
                 </CDBBox>
                 <CDBBox display='flex'>
-                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={handleShow}>
+                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={() => navigate('/logistica/crear-evento')}>
                         <CDBIcon icon='plus-circle' className='me-2' />Crear Evento
                     </Button>
                 </CDBBox>
             </CDBBox>
             <div style={{ maxHeight: '84vh', overflowY: 'auto' }}>
-                <Container fluid>
-                    <CDBBox display='flex' flex='fill' style={{ backgroundColor: '#EEEEEE', borderRadius: '15px' }} p={2} my={2}>
-                        <CDBBox display='flex' flex='fill' alignItems='center' >
-                            <img
-                                src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
-                                width={50}
-                                height={50}
-                                style={{ borderRadius: '60px' }}
-                                alt='Mina'
-                            />
-                            <Container className='ms-2'>
-                                <h6>Nombre del evento 1</h6>
-                                <p className='m-0'>Empresa</p>
-                            </Container>
-                        </CDBBox>
-                        <CDBBox display='flex' className='me-2'>
-                            12/30/1999
-                        </CDBBox>
-                    </CDBBox>
-                </Container>
+                <ShowUpcomingEvents events={events} />
             </div>
         </>
     )
