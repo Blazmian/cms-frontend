@@ -32,14 +32,12 @@ const SearchPartner = ({ setPartner, show, handleClose }) => {
         setSelectedPartner(partner)
     }
 
-    const [showToast, setShowToast] = useState(false)
-
     const handleSelectPartner = () => {
         if (Object.keys(selectedPartner).length !== 0) {
             setPartner(selectedPartner)
             handleClose()
         } else {
-            toast.custom((t) => (<ToastManager t={t} />))
+            toast.custom(() => <ToastManager title={'¡Advertencia!'} text={'No seleccionaste ningún socio'} type={'warning'} />, { duration: 2000 })
             handleClose()
         }
     }
