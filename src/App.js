@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import RegisterEvent from './components/RegisterEvent';
 import { Toaster } from 'react-hot-toast'
+import Login from './components/Login.js';
+import { ForgotPassword } from './components/ForgotPassword';
+import QRegisterEvent from './components/QRegisterEvent';
 
 const App = () => {
   return (
@@ -16,6 +19,10 @@ const App = () => {
         <Routes>
           <Route path='/logistica/*' element={<Logistic />} />
           <Route path='/registro-evento/:id' element={<RegisterEvent />} />
+          <Route path='/login/*' element={<Login />}  />
+          <Route path='/qr/*' element={<QRegisterEvent />}  />
+
+          <Route path='' element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
