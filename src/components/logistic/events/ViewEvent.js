@@ -38,7 +38,13 @@ const ViewEvent = () => {
                     className='mx-5'
                 />
                 <Container fluid>
-                    <h3 className={'fw-bold'}>{eventInformation.event_name}</h3>
+                    <Stack direction='horizontal' className='align-items-center'>
+                        <h3 className='fw-bold me-auto'>{eventInformation.event_name}</h3>
+                        <div className='d-flex align-items-center'>
+                            <div style={{ height: '15px', width: '15px', backgroundColor: '#63EA4D', borderRadius: '10px' }} />
+                            <h6 className='m-0 fw-normal ms-2'>En curso</h6>
+                        </div>
+                    </Stack>
                     <h5 className='fs-6' style={{ textAlign: 'justify' }}>{eventInformation.description}</h5>
                     <CDBBox style={{ fontSize: '13px' }} display='flex' flex='fill' alignItems='center'>
                         <CDBBox display='flex' flex='fill' alignItems='center'>
@@ -93,7 +99,7 @@ const ViewEvent = () => {
             </Container>
             <div style={{ width: '100%', height: '52vh' }} className='pt-3 px-5'>
                 <Routes>
-                    <Route path='/personas-interesadas' element={<InterestedPerson />} />
+                    <Route path='/personas-interesadas' element={<InterestedPerson idEvento={id} />} />
                     <Route path='/proveedores' element={<Providers />} />
                     <Route path='/patrocinadores' element={<Sponsor />} />
                     <Route path='/staff' element={<Assistant />} />
