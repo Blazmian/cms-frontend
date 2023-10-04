@@ -8,4 +8,6 @@ export const ApiUrls = createContext({
 
     //Partners
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
+
+
 })

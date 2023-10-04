@@ -16,7 +16,7 @@ export const onlyNumbers = (value) => {
     return isValid
 }
 
-export const email = (value) => {
+export const email_ = (value) => {
     let isValid = false
     const pattern = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", "i")
     if (pattern.test(value)){
@@ -27,7 +27,7 @@ export const email = (value) => {
 
 export const phoneNumber = (value) => {
     let isValid = false
-    const pattern = new RegExp('^((\d{10})', 'i')
+    const pattern = new RegExp('^[0-9]{10}$', 'i')
     if (pattern.test(value)){
         isValid = true
     }

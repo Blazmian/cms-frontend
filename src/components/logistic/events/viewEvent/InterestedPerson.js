@@ -2,6 +2,7 @@ import React from 'react';
 import { CDBTable, CDBTableHeader, CDBTableBody } from 'cdbreact';
 
 const InterestedPerson = () => {
+
     return (
         <>
             <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
