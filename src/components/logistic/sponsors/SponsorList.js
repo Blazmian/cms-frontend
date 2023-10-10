@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { CDBBox, CDBIcon } from 'cdbreact';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Form, InputGroup, Container } from 'react-bootstrap';
 import AddSponsor from './AddSponsor';
+import {
+    SearchOutlined
+} from '@ant-design/icons';
+
 
 const SponsorList = () => {
 
@@ -9,7 +13,8 @@ const SponsorList = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const [search, setSearch] = useState('')
+    
     return (
         <>
             <AddSponsor show={show} handleClose={handleClose} />
@@ -17,6 +22,12 @@ const SponsorList = () => {
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Listado de patrocinadores</h3>
                 </CDBBox>
+                <Form style={{marginRight:'15px', marginTop:'10px'}}>
+                            <InputGroup style={{width:'600px'}}>
+                                <span class="input-group-text" id="basic-addon1"><SearchOutlined/></span>
+                                <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Buscar patrocinador'></Form.Control>
+                            </InputGroup>
+                        </Form>
                 <CDBBox display='flex'>
                     <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={handleShow}>
                         <CDBIcon icon='plus-circle' className='me-2' />Agregar
