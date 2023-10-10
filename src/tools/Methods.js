@@ -1,3 +1,52 @@
+export const calculateTimeRemaining = (date, hour) => {
+    const actualDate = new Date()
+    const dateObj = new Date(date)
+    let daysRemaining = calculateDifferenceInDays(actualDate, dateObj)
+    let dateFinal = ''
+    if (daysRemaining > 0) {
+        dateFinal = `${daysRemaining} días con`
+    }
+
+
+    return `${dateFinal} `
+}
+
+
+const updateRemainingTime = (targetTime) => {
+    const now = new Date()
+    const currentHour = now.getHours()
+    const currentMinute = now.getMinutes()
+    const currentSecond = now.getSeconds()
+
+
+    const targetTimeParts = targetTime.split(':')
+    const targetHour = parseInt(targetTimeParts[0])
+    const targetMinute = parseInt(targetTimeParts[1])
+    const targetSecond = parseInt(targetTimeParts[2])
+
+    let hoursRemaining = targetHour - currentHour
+    let minutesRemaining = targetMinute - currentMinute
+    let secondsRemaining = targetSecond - currentSecond
+
+    if (secondsRemaining < 0) {
+      minutesRemaining--
+      secondsRemaining += 60
+    }
+
+    if (minutesRemaining < 0) {
+      hoursRemaining--
+      minutesRemaining += 60
+    }
+
+    if (hoursRemaining < 0) {
+      // The target time has already passed
+      return 'The target time has passed'
+    } else {
+      // Format the remaining time
+      return `${hoursRemaining}h ${minutesRemaining}m ${secondsRemaining}s`
+    }
+  }
+
 export const convertHour = (hour24) => {
     const hourParts = hour24.split(':');
     let hours = parseInt(hourParts[0], 10);

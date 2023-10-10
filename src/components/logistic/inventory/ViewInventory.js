@@ -30,7 +30,7 @@ const ViewInventory = () => {
                 <CDBBox display='flex'>
                         <Form style={{marginRight:'15px', marginTop:'10px'}}>
                             <InputGroup style={{width:'600px'}}>
-                                <span class="input-group-text" id="basic-addon1"><SearchOutlined/></span>
+                                <span className="input-group-text" id="basic-addon1"><SearchOutlined/></span>
                                 <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Buscar objeto'></Form.Control>
                             </InputGroup>
                         </Form>

@@ -18,8 +18,8 @@ const App = () => {
         <Routes>
           <Route path='/logistica/*' element={<Logistic />} />
           <Route path='/registro-evento/:id' element={<RegisterEvent />} />
-          <Route path='/login/*' element={<Login />}  />
-          <Route path='/qr/*' element={<QRegisterEvent />}  />
+          <Route path='/login/*' element={<Login />} />
+          <Route path='/qr/*' element={<QRegisterEvent />} />
 
           <Route path='' element={<Login />} />
         </Routes>

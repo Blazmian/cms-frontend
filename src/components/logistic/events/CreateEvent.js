@@ -42,7 +42,6 @@ const CreateEvent = () => {
         } else {
             type = 'Virtual'
         }
-        console.log(urls.createEvent + partner.folio)
         const res = await axios.post(urls.createEvent + partner.folio,
             {
                 event_name: eventName,

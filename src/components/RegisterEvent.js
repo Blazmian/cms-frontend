@@ -2,8 +2,27 @@ import { CDBBox, CDBIcon } from "cdbreact"
 import ClusterFooter from "./Footer"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import NavBarCMS from "./NavBar"
+import { useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import axios from "axios"
+import { ApiUrls } from "../tools/ApiUrls"
+import { convertDate, convertHour } from "../tools/Methods"
 
 const RegisterEvent = () => {
+
+    const { id } = useParams()
+    const urls = useContext(ApiUrls)
+    const [eventInfo, setEventInfo] = useState([])
+
+    useEffect(() => {
+        getEventInfo()
+    }, [id])
+
+    const getEventInfo = async () => {
+        const res = await axios.get(urls.getOneEvent + id)
+        setEventInfo(res.data)
+    }
+
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -77,24 +96,27 @@ const RegisterEvent = () => {
                                 style={{ borderRadius: '100px' }}
                             />
                         </CDBBox>
-                        <h3>Nombre del Evento</h3>
-                        <h6 style={{ textAlign: 'justify' }} className="mx-5 fw-normal my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
+                        <h3>{eventInfo.event_name}</h3>
+                        <h6 style={{ textAlign: 'justify' }} className="mx-5 fw-normal my-3">{eventInfo.description}</h6>
                         <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5">
                             <CDBIcon far icon="calendar" />
-                            <h6 className="fw-normal ms-3 mb-0">Domingo 1 de enero del 2024 (XX días)</h6>
+                            <h6 className="fw-normal ms-3 mb-0">{convertDate(eventInfo.date)}</h6>
                         </CDBBox>
                         <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5 mt-2">
                             <CDBIcon far icon="clock" />
-                            <h6 className="fw-normal ms-3 mb-0">00:00 a.m.</h6>
+                            <h6 className="fw-normal ms-3 mb-0">{eventInfo && eventInfo.hour && convertHour(eventInfo.hour)}</h6>
                         </CDBBox>
-                        <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5 mt-2">
-                            <CDBIcon icon="map-marker-alt" />
-                            <h6 className="fw-normal ms-3 mb-0">Hermosillo, Sonora</h6>
-                        </CDBBox>
-                        <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5 mt-2 mb-5">
-                            <CDBIcon icon="link" />
-                            <h6 className="fw-normal ms-3 mb-0">https://meet.google.com/</h6>
-                        </CDBBox>
+                        {eventInfo && eventInfo.type === 'Presencial' ?
+                            <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5 mt-2">
+                                <CDBIcon icon="map-marker-alt" />
+                                <h6 className="fw-normal ms-3 mb-0">{eventInfo.place}</h6>
+                            </CDBBox>
+                            :
+                            <CDBBox display="flex" flex="fill" alignItems="center" className="ms-5 mt-2 mb-5">
+                                <CDBIcon icon="link" />
+                                <h6 className="fw-normal ms-3 mb-0">{eventInfo.link}</h6>
+                            </CDBBox>
+                        }
                     </Container>
                 </Container>
                 <ClusterFooter />
