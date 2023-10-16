@@ -12,5 +12,7 @@ export const ApiUrls = createContext({
     getInteressedPersonByEvent: host + 'attendance-event/interessed-person-by-event/',
 
     //Partners
+    createPartner: host + 'partner',
+    getAllPartners: host + 'partner/all',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
 })

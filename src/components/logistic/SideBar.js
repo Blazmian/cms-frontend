@@ -2,6 +2,8 @@ import {
     AppstoreOutlined,
     CalendarOutlined,
     GiftOutlined,
+    PieChartFilled,
+    PieChartOutlined,
     TeamOutlined,
     UserSwitchOutlined,
 } from '@ant-design/icons';
@@ -55,6 +57,12 @@ const LogisticSideBar = () => {
                     <Menu.Item key="7" icon={<AppstoreOutlined />}>
                         <NavLink to='/logistica/inventario' style={{ textDecoration: 'none' }}>
                             Inventario
+                        </NavLink>
+                    </Menu.Item>
+
+                    <Menu.Item key="9" icon={<PieChartOutlined />}>
+                        <NavLink to='/logistica/socios' style={{ textDecoration: 'none' }}>
+                            Socios
                         </NavLink>
                     </Menu.Item>
 

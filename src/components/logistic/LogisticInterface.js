@@ -13,6 +13,7 @@ import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
 import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
+import PartnersInterface from './partners/PartnersInterface';
 
 const Logistic = () => {
 
@@ -30,6 +31,11 @@ const Logistic = () => {
                         <Route path='/proveedores/*' element={<Providers />} />
                         <Route path='/inventario/*' element={<ViewInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorList />} />
+
+
+                        <Route path='/socios/' element={<PartnersInterface />} />
+
+
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
                         <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
                         <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />

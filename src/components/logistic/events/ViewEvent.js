@@ -15,12 +15,21 @@ const ViewEvent = () => {
 
     const { id } = useParams()
     const [eventInformation, setEventInformation] = useState([])
+    const [timeRemaining, setTimeRemaining] = useState('')
     const urls = useContext(ApiUrls)
     const navigate = useNavigate('')
 
     useEffect(() => {
         getEventInfo()
     }, [id])
+
+    /*useEffect(() => {
+        if (eventInformation.length !== 0) {
+            setTimeRemaining(calculateTimeRemaining(eventInformation.date, eventInformation.hour))
+            const interval = setInterval(calculateTimeRemaining(eventInformation.date, eventInformation.hour), 1000)
+            return () => clearInterval(interval)
+        }
+    }, [eventInformation])*/
 
     const getEventInfo = async () => {
         const res = await axios.get(urls.getOneEvent + id)
@@ -30,7 +39,7 @@ const ViewEvent = () => {
     return (
         <>
             <Container fluid className='px-4 pt-4 pb-3' style={{ backgroundColor: '#EFEFEF' }}>
-                <h4 className='ms-5'>Faltan {calculateTimeRemaining(eventInformation.date)}</h4>
+                <h4 className='ms-5'>Faltan {timeRemaining}</h4>
                 <Container className='d-flex align-items-center p-0'>
                     <img
                         src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
