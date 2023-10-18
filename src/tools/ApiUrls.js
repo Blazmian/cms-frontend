@@ -14,5 +14,8 @@ export const ApiUrls = createContext({
     //Partners
     createPartner: host + 'partner',
     getAllPartners: host + 'partner/all',
+    getOnePartner: host + 'partner/one/',
+    deletePartner: host + 'partner/delete/',
+    editPartner: host + 'partner/update/',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
 })
