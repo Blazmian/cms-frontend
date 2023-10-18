@@ -35,9 +35,9 @@ const CreatePartner = ({ show, handleClose, handleUpdateTable }) => {
             setComercialName('')
             setLegalRepresentative('')
             setPayment(0)
-            toast.custom((t) => (<ToastManager title='Excelente!' text='Socio creado correctamente' type='success' />))
-            handleUpdateTable()
+            toast.custom((t) => (<ToastManager title='Excelente!' text='Socio creado correctamente' type='success' />))   
             handleClose()
+            handleUpdateTable()
         }
     }
 

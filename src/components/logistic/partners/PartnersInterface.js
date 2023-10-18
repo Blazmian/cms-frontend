@@ -4,6 +4,9 @@ import { Button, Container } from "react-bootstrap"
 import CreatePartner from "./CreatePartner"
 import axios from "axios"
 import { ApiUrls } from "../../../tools/ApiUrls"
+import '../../../styles/Partner.css'
+import InfoPartner from "./InfoPartner"
+import ShowPartners from "./ShowPartners"
 
 const PartnersInterface = () => {
 
@@ -39,28 +42,7 @@ const PartnersInterface = () => {
                 </CDBBox>
             </CDBBox>
             <div style={{ maxHeight: '84vh', overflowY: 'auto' }}>
-                <Container fluid>
-                    {partners.map((partner) => (
-                        <CDBBox display='flex' flex='fill' style={{ backgroundColor: '#EEEEEE', borderRadius: '15px' }} p={2} my={2}>
-                            <CDBBox display='flex' flex='fill' alignItems='center' >
-                                <img
-                                    src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
-                                    width={50}
-                                    height={50}
-                                    style={{ borderRadius: '60px' }}
-                                    alt='Mina'
-                                />
-                                <Container className='ms-2'>
-                                    <h6>{partner.comercial_name}</h6>
-                                    <p className='m-0'>{partner.folio}</p>
-                                </Container>
-                            </CDBBox>
-                            <CDBBox display='flex' className='me-2'>
-                                {partner.status}
-                            </CDBBox>
-                        </CDBBox>
-                    ))}
-                </Container>
+                <ShowPartners partners={partners} handleUpdatePartners={getPartners} />
             </div>
         </>
     )
