@@ -1,9 +1,9 @@
 import { CDBIcon } from "cdbreact"
 import { useContext, useEffect, useState } from "react"
 import { Button, InputGroup, Modal, Form, ListGroup, Stack, Container } from "react-bootstrap"
-import { ApiUrls } from "../../../tools/ApiUrls"
+import { ApiUrls } from "../../../../tools/ApiUrls"
 import axios from "axios"
-import ToastManager from "../../../tools/ToastManager"
+import ToastManager from "../../../../tools/ToastManager"
 import toast from "react-hot-toast"
 
 const SearchPartner = ({ setPartner, show, handleClose }) => {

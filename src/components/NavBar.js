@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap"
 const NavBarCMS = () => {
     return (
         <Container className='d-flex justify-content-start p-0' style={{ backgroundColor: '#464646' }} fluid>
-            <CDBBox display="flex" className="p-2" style={{ backgroundColor: '#272727', color: 'white', borderRadius: '0 30px 30px 0' }} alignItems="center">
+            <CDBBox display="flex" className="p-2" style={{ height: '8vh', backgroundColor: '#272727', color: 'white', borderRadius: '0 30px 30px 0' }} alignItems="center">
                 <img
                     src={ClusterLogo}
                     width={50}

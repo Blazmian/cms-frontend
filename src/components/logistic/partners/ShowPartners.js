@@ -21,7 +21,7 @@ const ShowPartners = ({ partners, handleUpdatePartners }) => {
             <InfoPartner show={modalInfoPartner} handleClose={handleCloseInfoPartner} idPartner={partner} handleUpdateTable={handleUpdatePartners} />
             <Container fluid>
                 {partners.map((partner) => (
-                    <CDBBox onClick={() => showPartner(partner.folio)} className="hoverPartner" key={partner.folio} display='flex' flex='fill' p={2} my={2}>
+                    <CDBBox onClick={() => showPartner(partner.folio)} className="list-result" key={partner.folio} display='flex' flex='fill' p={2} my={2}>
                         <CDBBox display='flex' flex='fill' alignItems='center' >
                             <img
                                 src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
