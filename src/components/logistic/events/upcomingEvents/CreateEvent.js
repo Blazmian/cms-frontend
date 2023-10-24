@@ -3,9 +3,9 @@ import { useContext, useState } from "react"
 import { Button, Container, Form, Stack, Row, Col } from "react-bootstrap"
 import axios, { } from 'axios'
 import { useNavigate } from "react-router-dom"
-import { ApiUrls } from "../../../tools/ApiUrls"
+import { ApiUrls } from "../../../../tools/ApiUrls"
 import SearchPartner from "./SearchPartner"
-import { onlyLetters } from "../../../tools/InputValidator"
+import Swal from "sweetalert2"
 
 const CreateEvent = () => {
 
@@ -23,72 +23,43 @@ const CreateEvent = () => {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    const [form, setForm] = useState({})
-    const [errors, setErrors] = useState({})
-    const setField = (field, value) => {
-        setForm({
-            ...form,
-            [field]: value
-        })
+    const [eventName, setEventName] = useState('')
+    const [description, setDescription] = useState('')
+    const [date, setDate] = useState(new Date())
+    const [hour, setHour] = useState('00:00')
+    const [place, setPlace] = useState('')
+    const [link, setLink] = useState('')
 
-        if (!!errors[field])
-            setErrors({
-                ...errors,
-                [field]: null
-            })
-    }
-
-    const validateForm = () => {
-        const { name, description, place, link } = form
-        const newErrors = {}
-
-        if (!name || name === '') {
-            newErrors.name = 'Por favor introduzca el nombre del evento'
-        } else if (!onlyLetters(name)) {
-            newErrors.name = 'Solo se aceptan letras'
-        }
-
-        if (!description || description === '') {
-            newErrors.description = 'Por favor introduzca la descripción'
-        } else if (!onlyLetters(description)) {
-            newErrors.description = 'Solo se aceptan letras'
-        }
-
-        if (!place || place === '') {
-            newErrors.place = 'Por favor introduzca el lugar'
-        } else if (!onlyLetters(place)) {
-            newErrors.place = 'Solo se aceptan letras'
-        }
-
-        if (!link || link === '') {
-            newErrors.link = 'Por favor introduzca el link'
-        } else if (!onlyLetters(link)) {
-            newErrors.link = 'Solo se aceptan letras'
-        }
-
-        return newErrors
-    }
-
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-
-        const formErrors = validateForm()
-
-        if (Object.keys(formErrors).length > 0) {
-            setErrors(formErrors)
-        } else {
-            addEvent()
-        }
+        createEvent()
     }
 
-    const addEvent = async () => {
-        const res = await axios.post(urls.addEvent,
+    const createEvent = async () => {
+        var type;
+        if (eventType === 'presential') {
+            type = 'Presencial'
+        } else {
+            type = 'Virtual'
+        }
+        const res = await axios.post(urls.createEvent + partner.folio,
             {
-                event_name: form.name,
-                description: form.description,
-
+                event_name: eventName,
+                description: description,
+                type: type,
+                place: place,
+                link: link,
+                date: date,
+                hour: hour,
             }
         )
+        Swal.fire({
+            icon: 'success',
+            title: '¡Evento creado con exito!',
+            text: '',
+        }).then(response => {
+            navigate('/logistica/eventos')
+        })
     }
 
     return (
@@ -120,19 +91,13 @@ const CreateEvent = () => {
                             <Form.Group as={Row}>
                                 <Form.Label column sm='2'>Nombre del evento</Form.Label>
                                 <Col>
-                                    <Form.Control type="text" placeholder="Introduce el nombre del evento"  onChange={(e) => setField('name', e.target.value)} isInvalid={!!errors.name}></Form.Control>
-                                        <Form.Control.Feedback type="invalid">
-                                        {errors.name}
-                                        </Form.Control.Feedback>
+                                    <Form.Control type="text" placeholder="Introduce el nombre del evento" value={eventName} onChange={(e) => setEventName(e.target.value)} />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mt-3">
                                 <Form.Label column sm='2'>Descripción del evento</Form.Label>
                                 <Col>
-                                    <Form.Control as="textarea" rows={4} placeholder="Introduce la descripción del evento" onChange={(e) => setField('description', e.target.value)} isInvalid={!!errors.description}></Form.Control>
-                                        <Form.Control.Feedback type="invalid">
-                                        {errors.description}
-                                        </Form.Control.Feedback>
+                                    <Form.Control as="textarea" rows={4} placeholder="Introduce la descripción del evento" value={description} onChange={(e) => setDescription(e.target.value)} />
                                 </Col>
                             </Form.Group>
                         </Container>
@@ -152,7 +117,7 @@ const CreateEvent = () => {
                                 <Form.Group as={Row} >
                                     <Form.Label column sm='1'>Dia</Form.Label>
                                     <Col sm='auto'>
-                                        <Form.Control type="date" />
+                                        <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)} />
                                     </Col>
                                 </Form.Group>
                             </Col>
@@ -160,7 +125,7 @@ const CreateEvent = () => {
                                 <Form.Group as={Row}>
                                     <Form.Label column sm='1'>Hora</Form.Label>
                                     <Col sm='auto'>
-                                        <Form.Control type="time" />
+                                        <Form.Control type="time" value={hour} onChange={(e) => setHour(e.target.value)} />
                                     </Col>
                                 </Form.Group>
                             </Col>
@@ -200,10 +165,7 @@ const CreateEvent = () => {
                                     <h5 className="m-0 ms-2">Lugar del evento (Opcional)</h5>
                                 </Container>
                                 <Stack gap={5} className="mx-2 mt-3 mb-4">
-                                    <Form.Control type="text" placeholder="Introduce el lugar donde se desarrollará el evento" onChange={(e) => setField('place', e.target.value)} isInvalid={!!errors.place}/>
-                                    <Form.Control.Feedback type="invalid">
-                            {errors.place}
-                        </Form.Control.Feedback>
+                                    <Form.Control type="text" placeholder="Introduce el lugar donde se desarrollará el evento" value={place} onChange={(e) => setPlace(e.target.value)} />
                                 </Stack>
                             </>)
                             : (<>
@@ -211,10 +173,7 @@ const CreateEvent = () => {
                                     <CDBIcon icon="link" />
                                     <h5 className="m-0 ms-2">Link de la reunión (Opcional)</h5>
                                 </Container>
-                                <Form.Control type="text" className="mx-2 mt-3 mb-4" placeholder="Introduce el lugar donde se desarrollará el evento" onChange={(e) => setField('link', e.target.value)} isInvalid={!!errors.link}/>
-                                <Form.Control.Feedback type="invalid">
-                            {errors.link}
-                        </Form.Control.Feedback>
+                                <Form.Control type="text" className="mx-2 mt-3 mb-4" placeholder="Introduce el link donde se desarrollará el evento" value={link} onChange={(e) => setLink(e.target.value)} />
                             </>)
                         }
                     </Container>
@@ -244,7 +203,7 @@ const CreateEvent = () => {
                     </Container>
                     <hr className="mx-3 my-4" />
                     <Container fluid className="d-flex justify-content-end align-items-center mb-4">
-                        <Button size="lg" onClick={handleSubmit}>Crear evento</Button>
+                        <Button size="lg" type="submit" onClick={handleSubmit}>Crear evento</Button>
                     </Container>
                 </Form>
             </Container>
