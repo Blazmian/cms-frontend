@@ -10,7 +10,7 @@ import { ApiUrls } from "../tools/ApiUrls"
 import { useState, useContext } from "react"
 import toast from "react-hot-toast"
 
-const RegisterEvent = (show, handleClose, handleAddRegister) => {
+const RegisterEvent = () => {
 
     const urls = useContext(ApiUrls)
 
@@ -88,6 +88,8 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
         const res = await axios.post(urls.addRegister,
             {
                 names: form.name,
+                first_last_name: form.first_last_name,
+                second_last_name: form.second_last_name,
                 company: form.company,
                 position: form.position,
                 email: form.email,
@@ -99,8 +101,10 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
         )
 
     if (res.data === true) {
-        toast.success('Alumno agregado con exito')
+        toast.success('Registro agregado con exito')
         form.name = ''
+        form.first_last_name = ''
+        form.second_last_name = ''
         form.company = ''
         form.position = ''
         form.email = ''
@@ -108,8 +112,6 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
         form.sex = ''
         form.eventfind = ''
         form.expectations = ''
-        handleAddRegister()
-        handleClose()
     }
     }
 
@@ -123,12 +125,27 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
                         <hr />
                         <Form>
                             <Form.Group as={Row} className="mb-3" controlId="names">
-                                <Form.Label column sm={2}>Nombres</Form.Label>
+                                <Form.Label column sm={2}>Nombre</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text" placeholder="Introduce tus nombres y apellidos"  onChange={(e) => setField('name', e.target.value)} isInvalid={!!errors.name}/>
+                                    <Form.Control type="text" placeholder="Introduce tu nombre"  onChange={(e) => setField('name', e.target.value)} isInvalid={!!errors.name}/>
                                         <Form.Control.Feedback type="invalid">
                                         {errors.name}
                                         </Form.Control.Feedback>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} className="mb-3" controlId="first_last_name">
+                                <Form.Label column sm={2}>Primer apellido</Form.Label>
+                                <Col sm={10}>
+                                    <Form.Control type="text" placeholder="Introduce tu primer apellido"  onChange={(e) => setField('first_last_name', e.target.value)}/>
+                                </Col>
+                            </Form.Group>
+
+
+                            <Form.Group as={Row} className="mb-3" controlId="second_last_name">
+                                <Form.Label column sm={2}>Segundo apelldio</Form.Label>
+                                <Col sm={10}>
+                                    <Form.Control type="text" placeholder="Introduce tu segundo apellido"  onChange={(e) => setField('second_last_name', e.target.value)}/>
                                 </Col>
                             </Form.Group>
 
@@ -176,19 +193,19 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
                             <Form.Group as={Row} className="mb-3 d-flex align-items-sm-center" controlId="sex">
                                 <Form.Label column sm={2}>Sexo</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Check inline name='sex' type={'radio'} id={'men'} label={'Masculino'} />
-                                    <Form.Check inline name='sex' type={'radio'} id={'woman'} label={'Femenino'} />
+                                    <Form.Check inline name='sex' type={'radio'} id={'men'} label={'Masculino'} onChange={(e) => setField('sex', e.target.value)}/>
+                                    <Form.Check inline name='sex' type={'radio'} id={'woman'} label={'Femenino'} onChange={(e) => setField('sex', e.target.value)}/>
                                 </Col>
                             </Form.Group>
 
                             <Form.Group as={Row} className="mb-3 d-flex align-items-sm-center" controlId="eventfind">
                                 <Form.Label column sm={2}>¿Cómo te enteraste del evento?</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text" placeholder="Introduce tu número celular o teléfono" />
+                                    <Form.Control type="text" placeholder="Introduce tu número celular o teléfono"  onChange={(e) => setField('eventfind', e.target.value)}/>
                                 </Col>
                             </Form.Group>
 
-                            <Form.Group as={Row} className="mb-3" controlId="eventfind">
+                            <Form.Group as={Row} className="mb-3" controlId="expectations">
                                 <Form.Label column sm={2}>Expectativas</Form.Label>
                                 <Col sm={10}>
                                     <Form.Control as="textarea" rows={3} placeholder="Describe las expectativas que tiene sobre el evento."  onChange={(e) => setField('expectations', e.target.value)} isInvalid={!!errors.expectations}/>
@@ -199,7 +216,7 @@ const RegisterEvent = (show, handleClose, handleAddRegister) => {
                             </Form.Group>
 
                             <Container className="d-flex justify-content-center">
-                                <Button onClick={handleSubmit}>Registrarse</Button>
+                                <Button type="submit" onClick={handleSubmit}>Registrarse</Button>
                             </Container>
                     </Form>
                 </Container>

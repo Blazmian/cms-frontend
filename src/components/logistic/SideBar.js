@@ -5,6 +5,7 @@ import {
     TeamOutlined,
     UserSwitchOutlined,
 } from '@ant-design/icons';
+import { PieChartOutline } from '@mui/icons-material';
 import { Layout, Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 
@@ -55,6 +56,12 @@ const LogisticSideBar = () => {
                     <Menu.Item key="7" icon={<AppstoreOutlined />}>
                         <NavLink to='/logistica/inventario' style={{ textDecoration: 'none' }}>
                             Inventario
+                        </NavLink>
+                    </Menu.Item>
+                    
+                    <Menu.Item key="9" icon={<PieChartOutline />}>
+                        <NavLink to='/logistica/socios' style={{ textDecoration: 'none' }}>
+                            Socios
                         </NavLink>
                     </Menu.Item>
 

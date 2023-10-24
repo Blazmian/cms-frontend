@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast'
 import Login from './components/Login.js';
 import { ForgotPassword } from './components/ForgotPassword';
 import QRegisterEvent from './components/QRegisterEvent';
+import Prueba from './Prueba';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/registro-evento/:id' element={<RegisterEvent />} />
           <Route path='/login/*' element={<Login />}  />
           <Route path='/qr/*' element={<QRegisterEvent />}  />
+          <Route path='/prueba/*' element={<Prueba />}  />
 
           <Route path='' element={<Login />} />
         </Routes>

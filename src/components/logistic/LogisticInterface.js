@@ -13,6 +13,9 @@ import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
 import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
+import EditProviders from './providers/EditProviders';
+import CreateProvider from './providers/CreateProvider';
+import ViewProvider from './providers/ViewProvider';
 
 const Logistic = () => {
 
@@ -28,11 +31,16 @@ const Logistic = () => {
                         <Route exact path='/eventos/:id/*' element={<ViewEvent />} />
                         <Route path='/eventos-cancelados' element={<CancelledEvents />} />
                         <Route path='/proveedores/*' element={<Providers />} />
+                        <Route exact path='/proveedores/:id/' element={<ViewProvider />} />
+                        <Route path='/editar-proveedores/*' element={<EditProviders />} />
                         <Route path='/inventario/*' element={<ViewInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorList />} />
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
                         <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
                         <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
+                        <Route exact path='/crear-proveedor/' element={<CreateProvider />} />
+
+                        
                     </Routes>
                 </Container>
             </Container>
