@@ -1,63 +1,98 @@
+import { useContext, useEffect, useState } from "react"
+import { Button, Container, Form, InputGroup, Modal } from "react-bootstrap"
+import { ApiUrls } from "../../../tools/ApiUrls"
+import axios from "axios"
+import toast from "react-hot-toast"
+import ToastManager from "../../../tools/ToastManager"
+import { CDBIcon } from "cdbreact"
 
-import { Modal, Button } from "react-bootstrap"
+const EditSponsor = ({ handleUpdateSponsor, show, handleClose, handleUpdateTable, sponsor }) => {
 
-const EditSponsor = ({ show, handleClose }) => {
+    const [id, setId] = useState('')
+    const [name, setName] = useState('')
+    const [sponsors, setSponsor] = useState('')
+    const [email, setEmail] = useState('')
+    const [description, setDescription] = useState('')
+    const [date, setDate] = useState('')
 
-    
+
+    const urls = useContext(ApiUrls)
+
+    useEffect(() => {
+        if (sponsor) {
+            setId(sponsor.id)
+            setName(sponsor.name)
+            setSponsor(sponsor.sponsors)
+            setEmail(sponsor.email)
+            setDescription(sponsor.description)
+            setDate(sponsor.date)
+        }
+    }, [sponsor])
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        EditSponsor()
+    }
+
+    const EditSponsor = async () => {
+        const res = await axios.put(urls.EditSponsor + sponsor.id, {
+            id: id,
+            name: name,
+            sponsor: sponsors,
+            email: email,
+            description: description,
+            date: date
+        })
+
+        toast.custom((t) => (<ToastManager title='Excelente!' text='Patrocinador modificado correctamente' type='success' />))
+        handleUpdateSponsor()
+        handleClose()
+        handleUpdateTable()
+    }
 
     return (
-        <>
-            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>Editar</Modal.Title>
-                </Modal.Header>
+        <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    <CDBIcon icon="pen" />
+                    Modificar patrocinador
+                </Modal.Title>
+            </Modal.Header>
 
-                <Modal.Body>
-                    <div class="form-group row">
-                        <label for="inputSponsor" class="col-sm-4 col-form-label">Nombre del patrocinador</label>
-                        <div class="col-sm-8 mb-3">
-                            <input type="Patrocinador" class="form-control" id="inputSponsor" placeholder="Patrocinador"></input>
-                        </div>
+            <Modal.Body>
+                <Container>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Folio del patrocinador</Form.Label>
+                            <Form.Control type="text" disabled value={id} />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Nombre del patrocinador</Form.Label>
+                            <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Introduzca el nombre del patrocinador" />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Patrocinio</Form.Label>
+                            <Form.Control type="text" value={sponsor} onChange={(e) => setSponsor(e.target.value)} placeholder="Introduzca el patrocinio de la empresa" />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Correo electrónico</Form.Label>
+                            <Form.Control type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Introduzca el correo electrónico de la empresa" />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Descripción</Form.Label>
+                            <Form.Control type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Introduzca una descripción breve" />
+                        </Form.Group>
+                    </Form>
+                </Container>
+            </Modal.Body>
 
-                        <label for="inputSponsor" class="col-sm-4 col-form-label">Patrocinio</label>
+            <Modal.Footer>
+                <Button variant="secondary">Cancelar</Button>
+                <Button variant="primary" type="submit" onClick={handleSubmit}>Modificar</Button>
+            </Modal.Footer>
 
-                        <div class="col-sm-8 mb-3">
-                            <input type="Sponsor" class="form-control" id="inputSponsor" placeholder="Oferta de patrocinio"></input>
-                        </div>
-
-                        <label for="inputSponsor" class="col-sm-4 col-form-label">Correo electrónico</label>
-
-                        <div class="col-sm-8 mb-3">
-                            <input type="Sponsor" class="form-control" id="inputSponsor" placeholder="ej: correoelectronico@gmail.com"></input>
-                        </div>
-
-                        <label for="descriptionSponsor" class="col-sm-4 col-form-label">Descripción</label>
-                        <div class="col-sm-8 mb-3">
-                            <textarea class="form-control" id="DescriptionSponsor" rows="6" placeholder="Información adicional del patrocinador"></textarea>
-                        </div>
-
-                        <label for="inputSponsor" class="col-sm-4 col-form-label">Contacto</label>
-
-                        <div class="col-sm-8 mb-3">
-                            <input type="Sponsor" class="form-control" id="inputSponsor" placeholder="Número telefónico"></input>
-                        </div>
-
-                        <div class="col_one_third col_last c-azul mb-3">
-                            <label for="nacimiento" style={{ marginRight: '122px' }}>Fecha<small></small></label>
-                            <input type="date" id="nacimiento" name="nacimiento" class="sm-form-control"></input>
-                        </div>
-                    </div>
-                </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="secondary">Cancelar</Button>
-                    <Button variant="primary">Guardar</Button>
-                </Modal.Footer>
-
-            </Modal>
-        </>
+        </Modal>
     )
-
 }
 
 export default EditSponsor

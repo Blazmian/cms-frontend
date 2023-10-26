@@ -18,4 +18,8 @@ export const ApiUrls = createContext({
     deletePartner: host + 'partner/delete/',
     editPartner: host + 'partner/update/',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
+
+    //Sponsors
+    createSponsor: host + 'sponsor',
+
 })

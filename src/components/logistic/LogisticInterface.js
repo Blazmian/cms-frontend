@@ -9,8 +9,8 @@ import ClusterFooter from '../Footer';
 import Providers from './providers/Providers';
 import CreateEvent from './events/CreateEvent';
 import ViewInventory from './inventory/ViewInventory';
-import SponsorList from './sponsors/SponsorList';
-import ViewSponsor from './sponsors/ViewSponsor';
+import SponsorInterface from './sponsors/SponsorInterface';
+import ShowSponsor from './sponsors/ShowSponsors';
 import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
 import PartnersInterface from './partners/PartnersInterface';
@@ -30,13 +30,13 @@ const Logistic = () => {
                         <Route path='/eventos-cancelados' element={<CancelledEvents />} />
                         <Route path='/proveedores/*' element={<Providers />} />
                         <Route path='/inventario/*' element={<ViewInventory />} />
-                        <Route path='/patrocinadores/*' element={<SponsorList />} />
+                        <Route path='/patrocinadores/*' element={<SponsorInterface />} />
 
 
                         <Route path='/socios/' element={<PartnersInterface />} />
 
 
-                        <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
+                        <Route exact path='/patrocinadores/:id/*' element={<ShowSponsor />} />
                         <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
                         <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
                     </Routes>
