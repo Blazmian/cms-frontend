@@ -3,7 +3,7 @@ import { useContext, useState } from "react"
 import { Button, Container, Form, Stack, Row, Col } from "react-bootstrap"
 import axios, { } from 'axios'
 import { useNavigate } from "react-router-dom"
-import { ApiUrls } from "../../../tools/ApiUrls"
+import { ApiUrls } from "../../../../tools/ApiUrls"
 import SearchPartner from "./SearchPartner"
 import Swal from "sweetalert2"
 

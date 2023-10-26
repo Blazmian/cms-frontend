@@ -3,6 +3,14 @@ import { createContext } from "react";
 const host = 'http://localhost:8000/'
 
 export const ApiUrls = createContext({
+
+    //Frontend Host
+    getFrontendHost: 'http://localhost:3000/',
+
+    //CanceledEvents
+    cancelEvent: host + 'canceled-event/create',
+    getCanceledEvents: host + 'canceled-event/all',
+
     //Events
     getOneEvent: host + 'event/one/',
     getUpcomingEvents: host + 'event/upcoming-events',

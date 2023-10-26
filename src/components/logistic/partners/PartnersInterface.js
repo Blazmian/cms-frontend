@@ -1,11 +1,9 @@
 import { CDBBox, CDBIcon } from "cdbreact"
 import { useContext, useEffect, useState } from "react"
-import { Button, Container } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import CreatePartner from "./CreatePartner"
 import axios from "axios"
 import { ApiUrls } from "../../../tools/ApiUrls"
-import '../../../styles/Partner.css'
-import InfoPartner from "./InfoPartner"
 import ShowPartners from "./ShowPartners"
 
 const PartnersInterface = () => {

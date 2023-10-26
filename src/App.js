@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Logistic from './components/logistic/LogisticInterface';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import "./styles/General.css";
 import RegisterEvent from './components/RegisterEvent';
 import { Toaster } from 'react-hot-toast'
 import Login from './components/Login.js';
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <>
       <Toaster
-        position="bottom-right"
+        position="top-right"
         reverseOrder={false}
       />
       <BrowserRouter>

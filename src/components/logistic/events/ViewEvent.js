@@ -1,6 +1,6 @@
-import { CDBBox, CDBIcon } from 'cdbreact'
+import { CDBIcon } from 'cdbreact'
 import { Button, Container, Stack } from 'react-bootstrap'
-import { NavLink, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import { NavLink, Route, Routes, useParams } from 'react-router-dom'
 import InterestedPerson from './viewEvent/InterestedPerson'
 import Providers from './viewEvent/Providers'
 import Assistant from './viewEvent/Assistant'
@@ -9,85 +9,43 @@ import '../../../styles/ViewEvent.css'
 import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { ApiUrls } from '../../../tools/ApiUrls'
-import { calculateTimeRemaining, convertDate, convertHour } from '../../../tools/Methods'
+import TimeRemaining from './viewEvent/TimeRemaining'
+import EventShowcase from './viewEvent/EventShowcase'
+import toast from 'react-hot-toast'
+import ToastManager from '../../../tools/ToastManager'
+import CancelEvent from './viewEvent/CancelEvent'
 
 const ViewEvent = () => {
 
     const { id } = useParams()
     const [eventInformation, setEventInformation] = useState([])
-    const [timeRemaining, setTimeRemaining] = useState('')
     const urls = useContext(ApiUrls)
-    const navigate = useNavigate('')
 
     useEffect(() => {
         getEventInfo()
     }, [id])
-
-    /*useEffect(() => {
-        if (eventInformation.length !== 0) {
-            setTimeRemaining(calculateTimeRemaining(eventInformation.date, eventInformation.hour))
-            const interval = setInterval(calculateTimeRemaining(eventInformation.date, eventInformation.hour), 1000)
-            return () => clearInterval(interval)
-        }
-    }, [eventInformation])*/
 
     const getEventInfo = async () => {
         const res = await axios.get(urls.getOneEvent + id)
         setEventInformation(res.data)
     }
 
+    const copyRegistrationLink = () => {
+        navigator.clipboard.writeText(urls.getFrontendHost + `registro-evento/${eventInformation.id}`)
+        toast.custom(() => (<ToastManager title={'Listo'} text={'¡Enlace copiado correctamente!'} type={'primary'} />))
+    }
+
+    const [show, setShow] = useState(false)
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
+
     return (
         <>
-            <Container fluid className='px-4 pt-4 pb-3' style={{ backgroundColor: '#EFEFEF' }}>
-                <h4 className='ms-5'>Faltan {timeRemaining}</h4>
-                <Container className='d-flex align-items-center p-0'>
-                    <img
-                        src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
-                        width={100}
-                        height={100}
-                        style={{ borderRadius: '60px' }}
-                        alt='Mina'
-                        className='mx-5'
-                    />
-                    <Container fluid>
-                        <Stack direction='horizontal' className='align-items-center'>
-                            <h3 className='fw-bold me-auto'>{eventInformation.event_name}</h3>
-                            <div className='d-flex align-items-center'>
-                                <div style={{ height: '15px', width: '15px', backgroundColor: '#63EA4D', borderRadius: '10px' }} />
-                                <h6 className='m-0 fw-normal ms-2'>En curso</h6>
-                            </div>
-                        </Stack>
-                        <h5 className='fs-6' style={{ textAlign: 'justify' }}>{eventInformation.description}</h5>
-                        <CDBBox style={{ fontSize: '13px' }} display='flex' flex='fill' alignItems='center'>
-                            <CDBBox display='flex' flex='fill' alignItems='center'>
-                                <CDBIcon far icon='calendar' />
-                                {convertDate(eventInformation.date)}
-                            </CDBBox>
-                            <CDBBox display='flex' flex='fill' alignItems='center'>
-                                <CDBIcon far icon='clock' />
-                                {eventInformation && eventInformation.hour && convertHour(eventInformation.hour)}
-                            </CDBBox>
-                            {eventInformation && eventInformation.type === 'Presencial' ?
-                                <CDBBox display='flex' flex='fill' alignItems='center'>
-                                    <CDBIcon icon='map-marker-alt' />
-                                    {eventInformation.place}
-                                </CDBBox>
-                                :
-                                <></>
-                            }
-                            {eventInformation && eventInformation.type === 'Virtual' ?
-                                <CDBBox display='flex' flex='fill' alignItems='center'>
-                                    <CDBIcon icon='link' />
-                                    {eventInformation.link}
-                                </CDBBox>
-                                :
-                                <></>
-                            }
-                        </CDBBox>
-                    </Container>
-                </Container>
+            <CancelEvent show={show} handleClose={handleClose} event={eventInformation} />
+            <TimeRemaining event={eventInformation} />
 
-            </Container>
+            <EventShowcase event={eventInformation} />
+
             <Container className='d-flex justify-content-center py-2' fluid style={{ backgroundColor: '#D9D9D9' }}>
                 <NavLink to={`/logistica/eventos/${id}/personas-interesadas`} style={{ textDecoration: 'none' }} className={({ isActive }) => isActive ? 'nav-link-clicked' : "nav-link-disabled"}>
                     <div className='p-1'>
@@ -111,7 +69,7 @@ const ViewEvent = () => {
 
                 </NavLink>
             </Container>
-            <div style={{ width: '100%', height: '52vh' }} className='pt-3 px-5'>
+            <div style={{ width: '100%', height: '50vh' }} className='pt-3 px-5'>
                 <Routes>
                     <Route path='/personas-interesadas' element={<InterestedPerson idEvento={id} />} />
                     <Route path='/proveedores' element={<Providers />} />
@@ -119,18 +77,18 @@ const ViewEvent = () => {
                     <Route path='/staff' element={<Assistant />} />
                 </Routes>
             </div>
-            <Stack direction='horizontal' gap={3} className='mx-5 mt-5 mb-3'>
-                <Button variant='secondary' size='lg' onClick={() => navigate('/logistica/eventos')}>
-                    <CDBIcon icon='angle-left' className='me-3' />
-                    Regresar
+            <Stack direction='horizontal' gap={3} className='mx-5 mt-auto mb-3'>
+                <Button className='me-auto' variant='outline-danger' size='lg' onClick={handleShow}>
+                    <CDBIcon far icon='calendar-minus' className='me-3' />
+                    Cancelar evento
                 </Button>
-                <Button className='ms-auto' variant='outline-danger' size='lg'>
-                    <CDBIcon icon='calendar-minus' className='me-3' />
-                    Cancelar
+                <Button variant='secondary' size='lg' onClick={copyRegistrationLink}>
+                    <CDBIcon far icon='clipboard' className='me-3' />
+                    Copiar link de registro
                 </Button>
                 <Button variant='primary' size='lg'>
-                    <CDBIcon icon='pen' className='me-3' />
-                    Editar
+                    <CDBIcon far icon='edit' className='me-3' />
+                    Modificar
                 </Button>
             </Stack>
         </>
