@@ -9,7 +9,7 @@ import { Layout, Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 
 const LogisticSideBar = () => {
-   
+    
     const { Sider } = Layout;
     
     return (
@@ -52,9 +52,9 @@ const LogisticSideBar = () => {
                             Personal Auxiliar
                         </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="7" icon={<AppstoreOutlined />}>
-                        <NavLink to='/logistica/inventario' style={{ textDecoration: 'none' }}>
-                            Inventario
+                    <Menu.Item key="9" icon={<AppstoreOutlined />}>
+                        <NavLink to='/logistica/socios' style={{ textDecoration: 'none' }}>
+                            socios
                         </NavLink>
                     </Menu.Item>
 

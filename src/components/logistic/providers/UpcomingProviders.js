@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { CDBBox, CDBIcon } from 'cdbreact';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Form, InputGroup } from 'react-bootstrap';
+import {
+    SearchOutlined
+} from '@ant-design/icons';
 
 const UpcomingProviders = () => {
+
+    const [search, setSearch] = useState('')
 
     return (
         <>
@@ -10,6 +15,14 @@ const UpcomingProviders = () => {
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Listado de Proveedores</h3>
                 </CDBBox>
+
+                <Form style={{ marginRight: '15px', marginTop: '10px' }}>
+                    <InputGroup style={{ width: '600px' }}>
+                        <span class="input-group-text" id="basic-addon1"><SearchOutlined /></span>
+                        <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Buscar auxiliar'></Form.Control>
+                    </InputGroup>
+                </Form>
+
                 <CDBBox display='flex'>
                     <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }}>
                         <CDBIcon icon='plus-circle' className='me-2' />Crear proveedor

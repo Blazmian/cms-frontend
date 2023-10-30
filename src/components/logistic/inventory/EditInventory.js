@@ -3,7 +3,7 @@ const EditInventory = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Editar Objeto</Modal.Title>
                 </Modal.Header>
@@ -33,12 +33,14 @@ const EditInventory = ({ show, handleClose }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary">Cancelar</Button>
-                    <Button variant="primary">Crear</Button>
+                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                        Cancelar
+                    </Button>
+                    <Button className='ms-1' variant='primary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                        Guardar
+                    </Button>
                 </Modal.Footer>
-
             </Modal>
-            
         </>
     )
 
