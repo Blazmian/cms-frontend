@@ -1,8 +1,0 @@
-.hoverEvent {
-    text-decoration: none;
-    color: black;
-}
-
-.hoverEvent h6:hover {
-    text-decoration: underline;
-}

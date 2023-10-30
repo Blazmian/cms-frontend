@@ -5,7 +5,7 @@ const Providers = () => {
     return (
         <>
             <div style={{ borderRadius: '10px', overflowY: 'hidden' }}>
-                <CDBTable striped hover responsive maxHeight="50vh" scrollY className="mb-0">
+                <CDBTable striped hover responsive maxHeight="45vh" scrollY className="mb-0">
                     <CDBTableHeader>
                         <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
                             <th style={{ backgroundColor: 'black', color: 'white' }}>Proveedor</th>

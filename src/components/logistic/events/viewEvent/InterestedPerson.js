@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CDBTable, CDBTableHeader, CDBTableBody } from 'cdbreact';
+import axios from 'axios';
+import { ApiUrls } from '../../../../tools/ApiUrls';
 
-const InterestedPerson = () => {
+const InterestedPerson = ({ idEvento }) => {
+
+    const [persons, setPersons] = useState([])
+    const urls = useContext(ApiUrls)
+
+    useEffect(() => {
+        getInteresedPersons()
+    }, [idEvento])
+
+    const getInteresedPersons = async () => {
+        const res = await axios.get(urls.getInteressedPersonByEvent + idEvento)
+        setPersons(res.data)
+    }
+
     return (
         <>
             <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                <CDBTable striped hover responsive maxHeight="50vh" scrollY className="mb-0">
+                <CDBTable striped hover responsive maxHeight="45vh" scrollY className="mb-0">
                     <CDBTableHeader>
                         <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
                             <th style={{ backgroundColor: 'black', color: 'white' }}>Nombres</th>
@@ -15,61 +30,14 @@ const InterestedPerson = () => {
                         </tr>
                     </CDBTableHeader>
                     <CDBTableBody>
-                        <tr >
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                            <td>00:00 DD/MM/AAAA</td>
-                        </tr>
-
+                        {persons.map((person) => (
+                            <tr style={{ textAlign: 'center' }} key={person.id}>
+                                <td>{`${person.interessed.names} ${person.interessed.first_last_name} ${person.interessed.second_last_name}`}</td>
+                                <td>{person.interessed.company}</td>
+                                <td>{person.interessed.email}</td>
+                                <td>{person.interessed.registration_date}</td>
+                            </tr>
+                        ))}
                     </CDBTableBody>
                 </CDBTable>
             </div>
