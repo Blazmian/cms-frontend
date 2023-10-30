@@ -14,6 +14,7 @@ import EventShowcase from './viewEvent/EventShowcase'
 import toast from 'react-hot-toast'
 import ToastManager from '../../../tools/ToastManager'
 import CancelEvent from './viewEvent/CancelEvent'
+import EditEvent from './viewEvent/EditEvent'
 
 const ViewEvent = () => {
 
@@ -35,13 +36,18 @@ const ViewEvent = () => {
         toast.custom(() => (<ToastManager title={'Listo'} text={'¡Enlace copiado correctamente!'} type={'primary'} />))
     }
 
-    const [show, setShow] = useState(false)
-    const handleShow = () => setShow(true)
-    const handleClose = () => setShow(false)
+    const [showCancel, setShowCancel] = useState(false)
+    const handleShowCancel = () => setShowCancel(true)
+    const handleCloseCancel = () => setShowCancel(false)
+
+    const [showEdit, setShowEdit] = useState(false)
+    const handleShowEdit = () => setShowEdit(true)
+    const handleCloseEdit = () => setShowEdit(false)
 
     return (
         <>
-            <CancelEvent show={show} handleClose={handleClose} event={eventInformation} />
+            <CancelEvent show={showCancel} handleClose={handleCloseCancel} event={eventInformation} />
+            <EditEvent show={showEdit} handleClose={handleCloseEdit} event={eventInformation} handleUpdateEvent={getEventInfo} />
             <TimeRemaining event={eventInformation} />
 
             <EventShowcase event={eventInformation} />
@@ -78,7 +84,7 @@ const ViewEvent = () => {
                 </Routes>
             </div>
             <Stack direction='horizontal' gap={3} className='mx-5 mt-auto mb-3'>
-                <Button className='me-auto' variant='outline-danger' size='lg' onClick={handleShow}>
+                <Button className='me-auto' variant='outline-danger' size='lg' onClick={handleShowCancel}>
                     <CDBIcon far icon='calendar-minus' className='me-3' />
                     Cancelar evento
                 </Button>
@@ -86,7 +92,7 @@ const ViewEvent = () => {
                     <CDBIcon far icon='clipboard' className='me-3' />
                     Copiar link de registro
                 </Button>
-                <Button variant='primary' size='lg'>
+                <Button variant='primary' size='lg' onClick={handleShowEdit}>
                     <CDBIcon far icon='edit' className='me-3' />
                     Modificar
                 </Button>

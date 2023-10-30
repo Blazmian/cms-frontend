@@ -15,6 +15,7 @@ export const ApiUrls = createContext({
     getOneEvent: host + 'event/one/',
     getUpcomingEvents: host + 'event/upcoming-events',
     createEvent: host + 'event/create-event/',
+    updateEvent: host + 'event/update-event/',
 
     //Attendance
     getInteressedPersonByEvent: host + 'attendance-event/interessed-person-by-event/',
