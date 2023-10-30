@@ -10,8 +10,11 @@ import CreateEvent from './events/upcomingEvents/CreateEvent';
 import ViewInventory from './inventory/ViewInventory';
 import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
-import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
+import UpcomingProviders from './providers/UpcomingProviders';
+import ViewProvider from './providers/ViewProvider';
+import ViewObjectInventory from './inventory/ViewObjectInventory';
+import AssistantsInterface from './assistants/AssistantsInterface';
 import PartnersInterface from './partners/PartnersInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
@@ -32,6 +35,7 @@ const Logistic = () => {
                         <Route path='/eventos-concluidos' element={<ConcludedEvents />} />
                         <Route path='/proveedores/*' element={<Providers />} />
                         <Route path='/inventario/*' element={<ViewInventory />} />
+                        <Route path='/inventario/:id/' element={<ViewObjectInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorList />} />
 
 
@@ -39,8 +43,11 @@ const Logistic = () => {
 
 
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
-                        <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
-                        <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
+                        <Route path='/personal-auxiliar/*' element={<AssistantsInterface />} />
+                        <Route exact path='/personal-auxiliar/:id/' element={<ViewAssistants />} />
+                        <Route path='/proveedores/*' element={<UpcomingProviders/>} />
+                        <Route exact path='/proveedores/:id/*' element={<ViewProvider/>} />
+                        <Route path='/socios/' element={<PartnersInterface />} />
                     </Routes>
                 </Container>
             </Container>

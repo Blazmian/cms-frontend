@@ -26,12 +26,9 @@ const Providers = () => {
                                 alt='Mina'
                             />
                             <Container className='ms-2'>
-                                <h6>Nombre del evento 1</h6>
-                                <p className='m-0'>Empresa</p>
+                                <h6>Nombre del Proveedor 1</h6>
+                                <p className='m-0'>Producto</p>
                             </Container>
-                        </CDBBox>
-                        <CDBBox display='flex' className='me-2'>
-                            12/30/1999
                         </CDBBox>
                     </CDBBox>
                 </Container>

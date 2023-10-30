@@ -2,7 +2,6 @@ import { CDBSidebar, CDBSidebarContent, CDBSidebarFooter, CDBSidebarHeader, CDBS
 import { NavLink } from 'react-router-dom';
 
 const LogisticSideBar = () => {
-
     return (
         <>
             <div style={{ display: 'flex', overflow: 'scroll initial' }}>
@@ -50,7 +49,6 @@ const LogisticSideBar = () => {
                             </NavLink>
                         </CDBSidebarMenu>
                     </CDBSidebarFooter>
-
                 </CDBSidebar>
             </div>
         </>

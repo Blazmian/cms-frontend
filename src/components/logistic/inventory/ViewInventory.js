@@ -18,11 +18,16 @@ const ViewInventory = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // For modal component
+    const [showViewInventory, setShowViewInventory] = useState(false);
+    const handleCloseViewInventory = () => setShowViewInventory(false);
+    const handleShowViewInventory = () => setShowViewInventory(true);
+
     const [search, setSearch] = useState('')
 
     return (
         <>
-            <ViewObjectInventory show={show} handleClose={handleClose} />
+            <CreateObject show={showViewInventory} handleClose={handleCloseViewInventory} />
             <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Inventario</h3>
@@ -30,11 +35,11 @@ const ViewInventory = () => {
                 <CDBBox display='flex'>
                     <Form style={{ marginRight: '15px', marginTop: '10px' }}>
                         <InputGroup style={{ width: '600px' }}>
-                            <span className="input-group-text" id="basic-addon1"><SearchOutlined /></span>
+                            <span class="input-group-text" id="basic-addon1"><SearchOutlined /></span>
                             <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Buscar objeto'></Form.Control>
                         </InputGroup>
                     </Form>
-                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold', marginTop: '10px' }} onClick={handleShow}>
+                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold', marginTop: '10px' }} onClick={handleShowViewInventory}>
                         <CDBIcon icon='plus-circle' className='me-2' />Agregar objeto
                     </Button>
                 </CDBBox>

@@ -10,7 +10,6 @@ const ShowPartners = ({ partners, handleUpdatePartners }) => {
     const handleShowInfoPartner = () => setModalInfoPartner(true)
     const handleCloseInfoPartner = () => setModalInfoPartner(false)
 
-
     const showPartner = (folio) => {
         setPartner(folio)
         handleShowInfoPartner()

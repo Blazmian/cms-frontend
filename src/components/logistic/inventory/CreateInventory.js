@@ -1,12 +1,13 @@
+import { CDBBox, CDBIcon } from 'cdbreact'
 import { Modal, Button } from "react-bootstrap"
 
 const CreateObject = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Agregar objeto al inventario</Modal.Title>
+                    <Modal.Title>Agregar objeto</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -34,8 +35,12 @@ const CreateObject = ({ show, handleClose }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary">Cancelar</Button>
-                    <Button variant="primary">Crear</Button>
+                    <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                        Cancelar
+                    </Button>
+                    <Button className='ms-1' variant='success' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                        Crear
+                    </Button>
                 </Modal.Footer>
 
             </Modal>

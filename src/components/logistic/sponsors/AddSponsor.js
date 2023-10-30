@@ -7,9 +7,9 @@ const AddSponsor = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Agregar</Modal.Title>
+                    <Modal.Title>Agregar patrocinador</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>

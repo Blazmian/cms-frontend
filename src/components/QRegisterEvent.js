@@ -2,7 +2,8 @@ import { CDBBox, CDBIcon } from "cdbreact"
 import ClusterFooter from "./Footer"
 import {Container} from "react-bootstrap"
 import NavBarCMS from "./NavBar"
-import QRCode from "react-qr-code"
+import QRCode from "react-qr-code";
+
 
 const QRegisterEvent = () => {
     return (
