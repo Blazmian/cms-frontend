@@ -30,9 +30,6 @@ const LogisticSideBar = () => {
                             <NavLink to="/logistica/inventario" className={({ isActive }) => isActive ? 'activeClicked' : ""}>
                                 <CDBSidebarMenuItem icon="archive">Inventario</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/logistica/socios" className={({ isActive }) => isActive ? 'activeClicked' : ""}>
-                                <CDBSidebarMenuItem icon="sync">Socios</CDBSidebarMenuItem>
-                            </NavLink>
                         </CDBSidebarMenu>
                     </CDBSidebarContent>
 
