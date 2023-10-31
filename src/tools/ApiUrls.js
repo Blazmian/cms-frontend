@@ -23,6 +23,12 @@ export const ApiUrls = createContext({
     getAllProviders: host + 'provider/all',
     createProvider: host + 'provider',
     getOneProvider: host + 'provider/one/',
+    deleteProvider: host + 'provider/delete/',
+    editProvider: host + 'provider/update/',
+
+    //Products
+    createProduct: host + 'provider_product',
+    editProduct: host + 'provider_product/update',
 
     //Partners
     createPartner: host + 'partner',

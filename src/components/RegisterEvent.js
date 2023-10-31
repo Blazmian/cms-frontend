@@ -4,13 +4,16 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import NavBarCMS from "./NavBar"
 import { onlyLetters } from "../tools/InputValidator"
 import { phoneNumber } from "../tools/InputValidator"
-import { email_ } from "../tools/InputValidator"
+import { email } from "../tools/InputValidator"
 import axios, { } from 'axios'
 import { ApiUrls } from "../tools/ApiUrls"
 import { useState, useContext } from "react"
 import toast from "react-hot-toast"
+import { convertDate, convertHour } from "../tools/Methods"
 
 const RegisterEvent = () => {
+
+    const [eventInfo, setEventInfo] = useState([])
 
     const urls = useContext(ApiUrls)
 
@@ -53,7 +56,7 @@ const RegisterEvent = () => {
 
         if (!email || email === '') {
             newErrors.email = 'Por favor introduzca su correo'
-        } else if (!email_(email)) {
+        } else if (!email(email)) {
             newErrors.email = 'Introduzca un correo electrónico valido'
         }
 
