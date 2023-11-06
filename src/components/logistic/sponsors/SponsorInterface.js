@@ -18,19 +18,18 @@ const SponsorInterface = () => {
 
     const urls = useContext(ApiUrls)
 
-    /*useEffect(() => {
+    useEffect(() => {
         getSponsors()
-    }, [])*/
+    }, [])
 
-    /*const getSponsors = async () => {
-        // Abrir consola: ctrl + shift + i
+    const getSponsors = async () => {
         const res = await axios.get(urls.getAllSponsors)
         setSponsors(res.data)
-    }*/
+    }
 
     return (
         <>
-            <CreateSponsor show={show} handleClose={handleClose}  />
+            <CreateSponsor show={show} handleClose={handleClose} handleUpdateTable={getSponsors}  />
             <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
                 <CDBBox display='flex' flex='fill'>
                     <h3 className='fw-bold m-0'>Listado de patrocinadores</h3>
@@ -42,7 +41,7 @@ const SponsorInterface = () => {
                 </CDBBox>
             </CDBBox>
             <div style={{ maxHeight: '84vh', overflowY: 'auto' }}>
-                <ShowSponsor spornsors={sponsors}  />
+                <ShowSponsor sponsors={sponsors} handleUpdateSponsors={getSponsors}  />
             </div>
         </>
     )

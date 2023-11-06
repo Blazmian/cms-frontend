@@ -29,5 +29,9 @@ export const ApiUrls = createContext({
 
     //Sponsors
     createSponsor: host + 'sponsor',
+    getAllSponsors: host + 'sponsor/all',
+    getOneSponsor: host + 'sponsor/one/',
+    deleteSponsor: host + 'sponsor/delete/',
+    editSponsor: host + 'sponsor/update/',
 
 })

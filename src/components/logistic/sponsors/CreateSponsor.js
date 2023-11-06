@@ -55,10 +55,6 @@ const CreateSponsor = ({ show, handleClose, handleUpdateTable }) => {
                     <Container>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3">
-                                <Form.Label>Folio del patrocinador</Form.Label>
-                                <Form.Control type="number" value={id} onChange={(e) => setId(e.target.value)} placeholder="Introduzca el folio" />
-                            </Form.Group>
-                            <Form.Group className="mb-3">
                                 <Form.Label>Nombre del patrocinador</Form.Label>
                                 <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Introduzca el nombre del patrocinador" />
                             </Form.Group>

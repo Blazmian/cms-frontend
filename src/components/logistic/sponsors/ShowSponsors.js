@@ -11,8 +11,8 @@ const ShowSponsors = ({ sponsors, handleUpdateSponsors }) => {
     const handleCloseInfoSponsor = () => setModalInfoSponsor(false)
 
 
-    const showSponsor = (folio) => {
-        setSponsor(folio)
+    const showSponsor = (id) => {
+        setSponsor(id)
         handleShowInfoSponsor()
     }
 
@@ -20,25 +20,28 @@ const ShowSponsors = ({ sponsors, handleUpdateSponsors }) => {
         <>
             <InfoSponsor show={modalInfoSponsor} handleClose={handleCloseInfoSponsor} idSponsor={sponsor} handleUpdateTable={handleUpdateSponsors} />
             <Container fluid >
-                <CDBBox className="hoverSponsor" display='flex' flex='fill' p={2} my={2}>
-                    <CDBBox display='flex' flex='fill' alignItems='center' >
+                {sponsors.map((sponsor) => (
+                    <CDBBox onClick={() => showSponsor(sponsor.id)} className="list-result" display='flex' flex='fill' p={2} my={2}>
+                        <CDBBox display='flex' flex='fill' alignItems='center' >
                         <img
-                            src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
-                            width={50}
-                            height={50}
-                            style={{ borderRadius: '60px' }}
-                            alt='Mina'
-                        />
-                        <Container className='ms-2' > 
-                            <h6 onClick={handleShowInfoSponsor}>Hola</h6>
-                            <p className='m-0'>3</p>
-                        </Container>
+                                src={'https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png'}
+                                width={70}
+                                height={70}
+                                style={{ borderRadius: '60px' }}
+                                alt='Mina'
+                            />
+                            <Container className='ms-2' >
+                                <h4 className="fw-bold mb-2">{sponsor.name}</h4>
+                                <h6 className="mb-1">{sponsor.sponsor}</h6>
+                                <h6 className='fw-normal' style={{color: '#454546'}}>{sponsor.description}</h6>
+                            </Container>
+                        </CDBBox>
+                        <CDBBox display='flex' className='me-2' alignItems="center">
+                            <p className="m-0">{sponsor.date}</p>
+                        </CDBBox>
                     </CDBBox>
-                    <CDBBox display='flex' className='me-2' alignItems="center">
-                        <div className="me-1" style={{ backgroundColor: '#64B04C', width: '15px', height: '15px', borderRadius: '10px' }} />
-                        <p className="m-0">Activo</p>
-                    </CDBBox>
-                </CDBBox>
+                ))
+                }
             </Container>
         </>
     )

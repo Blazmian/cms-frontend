@@ -35,7 +35,7 @@ const EditSponsor = ({ handleUpdateSponsor, show, handleClose, handleUpdateTable
     }
 
     const EditSponsor = async () => {
-        const res = await axios.put(urls.EditSponsor + sponsor.id, {
+        const res = await axios.put(urls.editSponsor + sponsor.id, {
             id: id,
             name: name,
             sponsor: sponsors,
@@ -72,7 +72,7 @@ const EditSponsor = ({ handleUpdateSponsor, show, handleClose, handleUpdateTable
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Patrocinio</Form.Label>
-                            <Form.Control type="text" value={sponsor} onChange={(e) => setSponsor(e.target.value)} placeholder="Introduzca el patrocinio de la empresa" />
+                            <Form.Control type="text" value={sponsors} onChange={(e) => setSponsor(e.target.value)} placeholder="Introduzca el patrocinio de la empresa" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Correo electrónico</Form.Label>

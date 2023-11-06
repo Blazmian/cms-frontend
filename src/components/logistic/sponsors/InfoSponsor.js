@@ -65,19 +65,22 @@ const InfoSponsor = ({ show, handleClose, idSponsor, handleUpdateTable }) => {
                     <Container>
                         <Stack direction="horizontal" gap={3}>
                             <img
-                                src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
+                                src={'https://cdn-icons-png.flaticon.com/512/6326/6326055.png'}
                                 width={100}
                                 height={100}
                                 style={{ borderRadius: '60px' }}
                                 alt='Mina'
                             />
                             <Container>
-                                <h3 className="fw-medium" style={{ textDecoration: 'underline' }}>{sponsor.name}</h3>
-                                <h3 className="fw-normal">{sponsor.sponsor}</h3>
-                                <Stack direction="horizontal" gap={2}>
-                                    <div style={{ backgroundColor: '#64B04C', width: '15px', height: '15px', borderRadius: '10px' }} />
-                                    <p className="m-0">{sponsor.status}</p>
-                                </Stack>
+                                <div className="w-100 d-flex align-items-center mb-2">
+                                    <h3 className="fw-medium fs-2 me-auto mb-0" >{sponsor.name}</h3>
+                                    <h6 className="mb-0 fw-normal">{sponsor.date}</h6>
+                                </div>
+
+
+                                <h3 className="fw-normal fs-4">{sponsor.sponsor}</h3>
+                                <p className="m-0 fs-6">{sponsor.email}</p>
+                                <p className="m-0">{sponsor.description}</p>
                             </Container>
                         </Stack>
                     </Container>
