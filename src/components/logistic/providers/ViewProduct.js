@@ -8,15 +8,16 @@ const ViewProduct = ({ products }) => {
 
     return (
         <Container fluid>
-            {products.map((product) => (
-                    <CDBTable striped hover responsive maxHeight="22vh" scrollY className="mb-0">
-                    <CDBTableHeader>
-                        <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Producto</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Descripción</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Precio</th>
-                        </tr>
-                    </CDBTableHeader>
+            <CDBTable striped hover responsive maxHeight="22vh" scrollY className="mb-0">
+                <CDBTableHeader>
+                    <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Producto</th>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Descripción</th>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Precio</th>
+                    </tr>
+                </CDBTableHeader>
+
+                {products.map((product) => (
                     <CDBTableBody>
                         <tr >
                             <td>{product.product}</td>
@@ -24,9 +25,9 @@ const ViewProduct = ({ products }) => {
                             <td>{product.description}</td>
                         </tr>
                     </CDBTableBody>
-                </CDBTable>
-            ))
-            }
+                ))
+                }
+            </CDBTable>
         </Container >
     )
 }
