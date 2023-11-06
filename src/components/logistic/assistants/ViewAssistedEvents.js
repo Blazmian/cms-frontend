@@ -90,7 +90,7 @@ const ViewAssistedEvents = ({ show, handleClose }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleClose}>
                         Cancelar
                     </Button>
                 </Modal.Footer>

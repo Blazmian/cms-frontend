@@ -7,7 +7,6 @@ import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
 import Providers from './providers/Providers';
 import CreateEvent from './events/upcomingEvents/CreateEvent';
-import ViewInventory from './inventory/ViewInventory';
 import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
 import ViewAssistants from './assistants/ViewAssistants';
@@ -17,6 +16,7 @@ import ViewObjectInventory from './inventory/ViewObjectInventory';
 import AssistantsInterface from './assistants/AssistantsInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
+import InventoryInterface from './inventory/InventoryInterface';
 
 const Logistic = () => {
 
@@ -33,7 +33,7 @@ const Logistic = () => {
                         <Route path='/eventos-cancelados' element={<CanceledEvents />} />
                         <Route path='/eventos-concluidos' element={<ConcludedEvents />} />
                         <Route path='/proveedores/*' element={<Providers />} />
-                        <Route path='/inventario/*' element={<ViewInventory />} />
+                        <Route path='/inventario/*' element={<InventoryInterface />} />
                         <Route path='/inventario/:id/' element={<ViewObjectInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorList />} />
                         <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />

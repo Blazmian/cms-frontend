@@ -24,6 +24,15 @@ export const ApiUrls = createContext({
     createAssitant: host + 'assistant',
     getAllAssistant : host + 'assistant/all',
     getOneAssitant: host + 'assistant/one/',
+    deleteAssistant: host + 'assistant/delete/',
+    editAssistant: host + 'assistant/update/',
+
+    //Inventory
+    createInventory: host + 'inventory',
+    editInventory: host + 'inventory/update/',
+    getAllInventory: host + 'inventory/all',
+    getOneInventory: host + 'inventory/one/',
+    deleteInventory: host + 'inventory/delete/',
 
     //Detail Assistants
     getAssistantsFromEvent: host + 'detail-assistant/assistant-event/',

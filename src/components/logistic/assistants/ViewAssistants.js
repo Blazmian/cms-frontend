@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 
 const ViewAssistants = () => {
 
-    const {id} = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
         if (id) {
@@ -32,25 +32,26 @@ const ViewAssistants = () => {
     }
 
 
-    const confirmDeleteAssistant = () =>{
-Swal.fire({
-    icon: 'warning',
-    Title: 'Precaucion',
-    Text:'¿estas seguro que quieres eliminar?' + assistant.name + '?',
-    showCancelButton: true,
-    confirmButtonText: 'eliminar',
-    cancelButtonText: 'cancelar'
-}).then((result) => {
-    if(result.isConfirmed){
-        deleteAssistant()
-    }else if (result.isDenied){
+    const confirmDeleteAssistant = () => {
+        Swal.fire({
+            icon: 'warning',
+            Title: 'Precaucion',
+            Text: '¿estas seguro que quieres eliminar?' + assistant.name + '?',
+            showCancelButton: true,
+            confirmButtonText: 'eliminar',
+            cancelButtonText: 'cancelar',
+            focusCancel: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteAssistant()
+            } else if (result.isDenied) {
 
-    }
-})
+            }
+        })
     }
 
-    const deleteAssistant = async() => {
-        const res =await axios.delete(urls.deleteAssistant + id)
+    const deleteAssistant = async () => {
+        const res = await axios.delete(urls.deleteAssistant + id)
         toast.success()
 
     }
@@ -67,7 +68,7 @@ Swal.fire({
 
     return (
         <>
-            <EditAssistant show={showEdit} handleClose={handleCloseEdit}  Assistant={assistant} />
+            <EditAssistant show={showEdit} handleClose={handleCloseEdit} Assistant={assistant} />
             <ViewAssistedEvents show={showAssistedEvents} handleClose={handleCloseAssistedEvents} />
             <h2 style={{ margin: '10px' }}>Visualizar auxiliar</h2>
             <hr />
@@ -104,9 +105,9 @@ Swal.fire({
                 </CDBBox>
             </Container>
             <hr />
-            <Button className='ms-1' variant="secondary" size='lg' style={{borderRadius: '15px', marginRight: '900px', marginTop: '10px' }} onClick={confirmDeleteAssistant}>Eliminar</Button>
-            <Button className='ms-1' variant="primary" size='lg' style={{borderRadius: '15px', marginTop: '10px' }} onClick={handleShowAssistedEvents}>Eventos auxiliados</Button>
-            <Button className='ms-1' variant="primary" size='lg' style={{borderRadius: '15px', marginTop: '10px' }} onClick={handleShowEdit}>Editar</Button>
+            <Button className='ms-1' variant="secondary" size='lg' style={{ borderRadius: '15px', marginRight: '800px', marginTop: '10px' }} onClick={confirmDeleteAssistant}>Eliminar</Button>
+            <Button className='ms-1' variant="primary" size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleShowAssistedEvents}>Eventos auxiliados</Button>
+            <Button className='ms-1' variant="primary" size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleShowEdit}>Editar</Button>
         </>
     )
 }

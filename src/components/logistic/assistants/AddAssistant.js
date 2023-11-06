@@ -15,7 +15,7 @@ const AddAssistant = ({ show, handleClose, handleUpdateTable }) => {
     const urls = useContext(ApiUrls)
 
     const handleSubmit = async () => {
-        const res = await axios.post(urls.createAssitant, {
+        const res = await axios.post(urls.createInventory, {
             name: name,
             email: email,
             cellphone: cellphone,
@@ -71,7 +71,7 @@ const AddAssistant = ({ show, handleClose, handleUpdateTable }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                    <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleClose}>
                         Cancelar
                     </Button>
                     <Button className='ms-1' variant='success' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleSubmit}>
