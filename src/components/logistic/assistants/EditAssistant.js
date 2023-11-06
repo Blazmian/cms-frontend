@@ -4,7 +4,7 @@ import { Form, Modal, Button, Container } from "react-bootstrap"
 import { ApiUrls } from "../../../tools/ApiUrls"
 import axios from "axios"
 
-const EditAssistant = ({ show, handleClose, handleUpdateTable, Assistant }) => {
+const EditAssistant = ({ show, handleClose, Assistant }) => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -38,7 +38,6 @@ const EditAssistant = ({ show, handleClose, handleUpdateTable, Assistant }) => {
             description: description,
         })
 
-            handleUpdateTable()
             handleClose()
 
     }
@@ -82,7 +81,7 @@ const EditAssistant = ({ show, handleClose, handleUpdateTable, Assistant }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }}>
+                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleClose}>
                         Cancelar
                     </Button>
                     <Button className='ms-1' variant='primary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleSubmit}>

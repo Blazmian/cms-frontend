@@ -69,11 +69,7 @@ const ViewObjectInventory = () => {
                 </CDBTable>
             </div>
             <Stack direction='horizontal' gap={3} className='mx-5 mt-5 mb-3'>
-                <Button variant='secondary' size='lg'>
-                    <CDBIcon icon='angle-left' className='me-3' />
-                    Regresar
-                </Button>
-                <Button className='ms-auto' variant='outline-danger' size='lg'>
+                <Button className='ms-auto' variant='outline-danger' size='lg' style={{ marginRight: '850px'}}>
                     <CDBIcon icon='calendar-minus' className='me-3' />
                     Eliminar
                 </Button>
