@@ -24,7 +24,7 @@ const ShowSponsors = ({ sponsors, handleUpdateSponsors }) => {
                     <CDBBox onClick={() => showSponsor(sponsor.id)} className="list-result" display='flex' flex='fill' p={2} my={2}>
                         <CDBBox display='flex' flex='fill' alignItems='center' >
                         <img
-                                src={'https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png'}
+                                src={'https://www.flaticon.es/icono-gratis/usuario_8038492?term=user&page=1&position=16&origin=search&related_id=8038492'}
                                 width={70}
                                 height={70}
                                 style={{ borderRadius: '60px' }}
