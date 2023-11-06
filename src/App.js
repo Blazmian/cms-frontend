@@ -3,10 +3,10 @@ import Logistic from './components/logistic/LogisticInterface';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import "./styles/General.css";
-import RegisterEvent from './components/RegisterEvent';
+import RegisterEvent from './components/logistic/register-event/RegisterEvent';
 import { Toaster } from 'react-hot-toast'
 import Login from './components/Login.js';
-import QRegisterEvent from './components/QRegisterEvent';
+import QRegisterEvent from './components/logistic/register-event/QRegisterEvent';
 
 
 const App = () => {

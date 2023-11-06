@@ -25,6 +25,9 @@ export const ApiUrls = createContext({
     getAllAssistant : host + 'assistant/all',
     getOneAssitant: host + 'assistant/one/',
 
+    //Detail Assistants
+    getAssistantsFromEvent: host + 'detail-assistant/assistant-event/',
+
     //Partners
     createPartner: host + 'partner',
     getAllPartners: host + 'partner/all',
@@ -32,4 +35,7 @@ export const ApiUrls = createContext({
     deletePartner: host + 'partner/delete/',
     editPartner: host + 'partner/update/',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
+
+    //Detail Sponsors
+    getSponsorsFromEvent: host + 'detail-sponsor/sponsors-from-event/',
 })

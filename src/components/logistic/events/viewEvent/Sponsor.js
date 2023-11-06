@@ -1,66 +1,53 @@
-import React from 'react';
-import { CDBTable, CDBTableHeader, CDBTableBody } from 'cdbreact';
+import React, { useContext, useEffect, useState } from 'react';
+import { CDBTable, CDBTableHeader, CDBTableBody, CDBBox, CDBIcon } from 'cdbreact';
+import { Button } from 'react-bootstrap';
+import { ApiUrls } from '../../../../tools/ApiUrls';
+import axios from 'axios';
 
-const Sponsor = () => {
+const Sponsor = ({ eventId }) => {
+
+    const [sponsors, setSponsors] = useState([])
+
+    useEffect(() => {
+        getSponsors()
+    }, [eventId])
+
+    const urls = useContext(ApiUrls)
+
+    const getSponsors = async () => {
+        const res = await axios.get(urls.getSponsorsFromEvent + eventId)
+        setSponsors(res.data)
+    }
+
     return (
         <>
+            <CDBBox display='flex' alignItems='center' className='mb-3'>
+                <h5 className='mb-0 fw-bold'>Patrocinadores del evento: </h5>
+                <h5 className='mb-0 ms-2 me-auto fw-normal'>{sponsors.length}</h5>
+                <Button variant='warning'>
+                    <CDBIcon icon='plus' className='me-2' />
+                    Agregar patrocinador
+                </Button>
+            </CDBBox>
             <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                <CDBTable striped hover responsive maxHeight='45vh' scrollY className="mb-0">
-                    <CDBTableHeader >
-                        <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Patrocinador</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Patrocinio(s)</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Correo</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Descripción</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Fecha</th>
+                <CDBTable striped hover responsive maxHeight='45vh' scrollY className="mb-0 table-structure">
+                    <CDBTableHeader>
+                        <tr>
+                            <th>Patrocinador</th>
+                            <th>Patrocinio(s)</th>
+                            <th>Correo</th>
+                            <th>Fecha</th>
                         </tr>
                     </CDBTableHeader>
                     <CDBTableBody>
-                        <>
-                            <tr >
-                                <td>Sergio Gomez</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
+                        {sponsors.map((sponsor) => (
+                            <tr key={sponsor.id}>
+                                <td>{sponsor.sponsor.name}</td>
+                                <td>{sponsor.sponsor.sponsor}</td>
+                                <td>{sponsor.sponsor.email}</td>
+                                <td>{sponsor.sponsor.date}</td>
                             </tr>
-                            <tr>
-                                <td>Lucia Sanchez</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr>
-                                <td>Valeria Garcia</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr>
-                                <td>Juan Suarez</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr>
-                                <td>Marta Lopez</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                            <tr>
-                                <td>Mario Medina</td>
-                                <td>Patrocinio de prueba</td>
-                                <td>correoprueba@prueba.com</td>
-                                <td>Descripción</td>
-                                <td>DD/MM/AAAA</td>
-                            </tr>
-                        </>
-
+                        ))}
                     </CDBTableBody>
                 </CDBTable>
             </div>

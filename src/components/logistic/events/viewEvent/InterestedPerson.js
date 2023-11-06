@@ -3,30 +3,30 @@ import { CDBTable, CDBTableHeader, CDBTableBody } from 'cdbreact';
 import axios from 'axios';
 import { ApiUrls } from '../../../../tools/ApiUrls';
 
-const InterestedPerson = ({ idEvento }) => {
+const InterestedPerson = ({ eventId }) => {
 
     const [persons, setPersons] = useState([])
     const urls = useContext(ApiUrls)
 
     useEffect(() => {
         getInteresedPersons()
-    }, [idEvento])
+    }, [eventId])
 
     const getInteresedPersons = async () => {
-        const res = await axios.get(urls.getInteressedPersonByEvent + idEvento)
+        const res = await axios.get(urls.getInteressedPersonByEvent + eventId)
         setPersons(res.data)
     }
 
     return (
         <>
             <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                <CDBTable striped hover responsive maxHeight="45vh" scrollY className="mb-0">
+                <CDBTable striped hover responsive maxHeight="45vh" scrollY className="mb-0 table-structure">
                     <CDBTableHeader>
-                        <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Nombres</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Empresa</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Correo</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Fecha de Registro</th>
+                        <tr style={{ textAlign: 'center' }}>
+                            <th>Nombres</th>
+                            <th>Empresa</th>
+                            <th>Correo</th>
+                            <th>Fecha de Registro</th>
                         </tr>
                     </CDBTableHeader>
                     <CDBTableBody>

@@ -18,3 +18,9 @@
 .activeClicked li {
     border-radius: 10px;
 }
+
+.table-structure th {
+    background-color: black;
+    color: white;
+    text-align: center;
+}

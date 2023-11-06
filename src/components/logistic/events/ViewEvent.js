@@ -72,18 +72,17 @@ const ViewEvent = () => {
                     <div className='p-1'>
                         <h5 className='m-0 mx-5'>Staff</h5>
                     </div>
-
                 </NavLink>
             </Container>
-            <div style={{ width: '100%', height: '50vh' }} className='pt-3 px-5'>
+            <div style={{ width: '100%', height: '55vh' }} className='pt-3 px-5'>
                 <Routes>
-                    <Route path='/personas-interesadas' element={<InterestedPerson idEvento={id} />} />
+                    <Route path='/personas-interesadas' element={<InterestedPerson eventId={id} />} />
                     <Route path='/proveedores' element={<Providers />} />
-                    <Route path='/patrocinadores' element={<Sponsor />} />
-                    <Route path='/staff' element={<Assistant />} />
+                    <Route path='/patrocinadores' element={<Sponsor eventId={id} />} />
+                    <Route path='/staff' element={<Assistant eventId={id} />} />
                 </Routes>
             </div>
-            <Stack direction='horizontal' gap={3} className='mx-5 mt-auto mb-3'>
+            <Stack direction='horizontal' gap={3} className='mx-5 mb-3'>
                 <Button className='me-auto' variant='outline-danger' size='lg' onClick={handleShowCancel}>
                     <CDBIcon far icon='calendar-minus' className='me-3' />
                     Cancelar evento
