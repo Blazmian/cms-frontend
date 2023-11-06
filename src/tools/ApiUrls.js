@@ -29,6 +29,7 @@ export const ApiUrls = createContext({
     //Products
     createProduct: host + 'provider_product',
     editProduct: host + 'provider_product/update',
+    getProduct: host + 'provider_product/all',
 
     //Partners
     createPartner: host + 'partner',

@@ -69,8 +69,7 @@ const EditProvider = ({ handleUpdatePartner, show, handleClose, provider }) => {
                         <Form.Group className="mb-3">
                             <Form.Label>Descripción</Form.Label>
                             <InputGroup className="mb-3">
-                                <InputGroup.Text>$</InputGroup.Text>
-                                <Form.Control type="number" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Introduzca el monto de afiliación" />
+                                <Form.Control type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Introduzca el monto de afiliación" />
                             </InputGroup>
                         </Form.Group>
                     </Form>
