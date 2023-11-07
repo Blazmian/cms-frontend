@@ -8,12 +8,20 @@ import ClusterFooter from '../Footer';
 import Providers from './providers/Providers';
 import CreateEvent from './events/upcomingEvents/CreateEvent';
 import ViewInventory from './inventory/ViewInventory';
-import SponsorInterface from './sponsors/SponsorInterface';
-import ShowSponsor from './sponsors/ShowSponsors';
-import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
+import SponsorList from './sponsors/SponsorList';
+import ViewSponsor from './sponsors/ViewSponsor';
+import ViewAssistants from './assistants/ViewAssistants';
+import UpcomingProviders from './providers/UpcomingProviders';
+import ViewProvider from './providers/ViewProvider';
+import ViewObjectInventory from './inventory/ViewObjectInventory';
+import AssistantsInterface from './assistants/AssistantsInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
+import ViewProvider from './providers/ViewProvider';
+import CreateProvider from './providers/CreateProvider';
+import EditProvider from './providers/EditProviders';
+import InventoryInterface from './inventory/InventoryInterface';
 
 const Logistic = () => {
 
@@ -30,14 +38,21 @@ const Logistic = () => {
                         <Route path='/eventos-cancelados' element={<CanceledEvents />} />
                         <Route path='/eventos-concluidos' element={<ConcludedEvents />} />
                         <Route path='/proveedores/*' element={<Providers />} />
+                        <Route exact path='/proveedores/:id/' element={<ViewProvider />} />
+                        <Route exact path='/editar-proveedor/:id/' element={<EditProvider />} />
+
                         <Route path='/inventario/*' element={<ViewInventory />} />
-                        <Route path='/patrocinadores/*' element={<SponsorInterface />} />
+                        <Route path='/inventario/*' element={<InventoryInterface />} />
+                        <Route path='/inventario/:id/' element={<ViewObjectInventory />} />
+                        <Route path='/patrocinadores/*' element={<SponsorList />} />
+                        <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
+                        <Route exact path='/crear-proveedor/' element={<CreateProvider />} />
 
-
-
-                        <Route exact path='/patrocinadores/:id/*' element={<ShowSponsor />} />
-                        <Route path='/personal-auxiliar/*' element={<UpcomingAssistants />} />
-                        <Route exact path='/personal-auxiliar/:id/*' element={<ViewAssistants />} />
+                        
+                        <Route path='/personal-auxiliar/*' element={<AssistantsInterface />} />
+                        <Route exact path='/personal-auxiliar/:id/' element={<ViewAssistants />} />
+                        <Route path='/proveedores/*' element={<UpcomingProviders/>} />
+                        <Route exact path='/proveedores/:id/*' element={<ViewProvider/>} />
                     </Routes>
                 </Container>
             </Container>

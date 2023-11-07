@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import { CDBBox, CDBIcon } from 'cdbreact';
-import { Button, Container } from 'react-bootstrap';
-import AddAssistant from './AddAssistant';
+import { Button, Container, Form, InputGroup } from 'react-bootstrap';
+import {
+    SearchOutlined
+} from '@ant-design/icons';
 
-const UpcomingAssistants = () => {
+const UpcomingProviders = () => {
 
-    // For modal component
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [search, setSearch] = useState('')
 
     return (
         <>
-            <AddAssistant show={show} handleClose={handleClose} />
             <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
                 <CDBBox display='flex' flex='fill'>
-                    <h3 className='fw-bold m-0'>Listado del personal auxiliar</h3>
+                    <h3 className='fw-bold m-0'>Listado de Proveedores</h3>
                 </CDBBox>
+
+                <Form style={{ marginRight: '15px', marginTop: '10px' }}>
+                    <InputGroup style={{ width: '600px' }}>
+                        <span class="input-group-text" id="basic-addon1"><SearchOutlined /></span>
+                        <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Buscar auxiliar'></Form.Control>
+                    </InputGroup>
+                </Form>
+
                 <CDBBox display='flex'>
-                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={handleShow}>
-                        <CDBIcon icon='plus-circle' className='me-2' />Agregar auxiliar
+                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }}>
+                        <CDBIcon icon='plus-circle' className='me-2' />Crear proveedor
                     </Button>
                 </CDBBox>
             </CDBBox>
@@ -35,7 +41,8 @@ const UpcomingAssistants = () => {
                                 alt='Mina'
                             />
                             <Container className='ms-2'>
-                                <h6>Nombre del personal auxiliar</h6>
+                                <h6>Nombre del proveedor 1</h6>
+                                <p className='m-0'>Producto</p>
                             </Container>
                         </CDBBox>
                     </CDBBox>
@@ -45,4 +52,4 @@ const UpcomingAssistants = () => {
     )
 }
 
-export default UpcomingAssistants
+export default UpcomingProviders

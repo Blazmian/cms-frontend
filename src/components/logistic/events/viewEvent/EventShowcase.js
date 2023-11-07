@@ -6,14 +6,14 @@ const EventShowcase = ({ event }) => {
     return (
         <>
             <Container fluid className='px-4 pt-4 pb-3' style={{ backgroundColor: '#EFEFEF' }}>
-                <Container className='d-flex align-items-center p-0'>
+                <Container fluid className='d-flex align-items-center p-0'>
                     <img
                         src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
                         width={100}
                         height={100}
                         style={{ borderRadius: '60px' }}
                         alt='Mina'
-                        className='mx-5'
+                        className='mx-4'
                     />
                     <Container fluid>
                         <Stack direction='horizontal' className='align-items-center'>
@@ -33,17 +33,17 @@ const EventShowcase = ({ event }) => {
                             </div>
                         </Stack>
                         <h5 className='fs-6' style={{ textAlign: 'justify' }}>{event.description}</h5>
-                        <CDBBox style={{ fontSize: '13px' }} display='flex' flex='fill' alignItems='center'>
-                            <CDBBox display='flex' flex='fill' alignItems='center'>
+                        <Stack style={{ fontSize: '13px' }} direction="horizontal" gap={5}>
+                            <CDBBox display='flex' alignItems='center'>
                                 <CDBIcon far icon='calendar' />
                                 {convertDate(event.date)}
                             </CDBBox>
-                            <CDBBox display='flex' flex='fill' alignItems='center'>
+                            <CDBBox display='flex' alignItems='center'>
                                 <CDBIcon far icon='clock' />
                                 {event && event.hour && convertHour(event.hour)}
                             </CDBBox>
                             {event && event.type === 'Presencial' ?
-                                <CDBBox display='flex' flex='fill' alignItems='center'>
+                                <CDBBox display='flex' alignItems='center'>
                                     <CDBIcon icon='map-marker-alt' />
                                     {event.place}
                                 </CDBBox>
@@ -51,14 +51,14 @@ const EventShowcase = ({ event }) => {
                                 <></>
                             }
                             {event && event.type === 'Virtual' ?
-                                <CDBBox display='flex' flex='fill' alignItems='center'>
+                                <CDBBox display='flex' alignItems='center'>
                                     <CDBIcon icon='link' />
                                     {event.link}
                                 </CDBBox>
                                 :
                                 <></>
                             }
-                        </CDBBox>
+                        </Stack>
                     </Container>
                 </Container>
             </Container >

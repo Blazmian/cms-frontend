@@ -11,7 +11,7 @@ const ViewAssistedEvents = ({ show, handleClose }) => {
                     <Modal.Title>Visualizar eventos auxiliados</Modal.Title>
                 </Modal.Header>
 
-                <Modal.Body style={{ backgroundColor: '#ABABAB'}}>
+                <Modal.Body >
                     <Container fluid className='ms-0 pt-1 px-6 pb-1 d-flex align-items-center' style={{ backgroundColor: '#D9D9D9'}}>
                         <img
                             src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
@@ -90,7 +90,9 @@ const ViewAssistedEvents = ({ show, handleClose }) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary">Regresar</Button>
+                <Button className='ms-1' variant='secondary' size='lg' style={{ borderRadius: '15px', marginTop: '10px' }} onClick={handleClose}>
+                        Cancelar
+                    </Button>
                 </Modal.Footer>
 
             </Modal>

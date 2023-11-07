@@ -64,21 +64,39 @@ export const calculateDifferenceInDays = (date1, date2) => {
   return differenceInDays
 }
 
+const daysOfTheWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+const monthsOfTheYear = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+
+export const convertDateNoRestingDays = (date) => {
+  if (date) {
+    const dateArray = date.toString().split('-')
+    const dateObj = new Date(dateArray[0], dateArray[1] - 1, dateArray[2])
+    const dayWeek = daysOfTheWeek[dateObj.getDay()]
+    const dayMonth = dateObj.getDate()
+    const month = monthsOfTheYear[dateObj.getMonth()]
+    const year = dateObj.getFullYear()
+
+    return `${dayWeek} ${dayMonth} de ${month} de ${year}`
+  }
+  return ''
+}
+
 export const convertDate = (date) => {
-  const daysOfTheWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
-  const monthsOfTheYear = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+  if (date) {
+    const dateArray = date.toString().split('-')
+    const dateObj = new Date(dateArray[0], dateArray[1] - 1, dateArray[2])
+    const dayWeek = daysOfTheWeek[dateObj.getDay()]
+    const dayMonth = dateObj.getDate()
+    const month = monthsOfTheYear[dateObj.getMonth()]
+    const year = dateObj.getFullYear()
 
-  const dateObj = new Date(date)
-  const dayWeek = daysOfTheWeek[dateObj.getDay()]
-  const dayMonth = dateObj.getDate()
-  const month = monthsOfTheYear[dateObj.getMonth()]
-  const year = dateObj.getFullYear()
+    const formatDate = `${dayWeek} ${dayMonth} de ${month} de ${year}`
 
-  const formatDate = `${dayWeek} ${dayMonth} de ${month} de ${year}`
+    const actualDate = new Date()
+    const differenceInDays = calculateDifferenceInDays(actualDate, dateObj)
+    const restingDays = differenceInDays === 0 ? 'hoy' : `${differenceInDays} días`
 
-  const actualDate = new Date()
-  const differenceInDays = calculateDifferenceInDays(actualDate, dateObj)
-  const restingDays = differenceInDays === 0 ? 'hoy' : `${differenceInDays} días`
-
-  return `${formatDate} (${restingDays})`
+    return `${formatDate} (${restingDays})`
+  }
+  return ''
 }

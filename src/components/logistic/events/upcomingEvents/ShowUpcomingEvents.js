@@ -1,6 +1,7 @@
 import { CDBBox } from "cdbreact"
 import { Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { convertDateNoRestingDays } from "../../../../tools/Methods"
 
 const ShowUpcomingEvents = ({ events, handleUpdateEvents }) => {
 
@@ -24,7 +25,7 @@ const ShowUpcomingEvents = ({ events, handleUpdateEvents }) => {
                         </Container>
                     </CDBBox>
                     <CDBBox display='flex' className='me-2'>
-                        {event.date}
+                        {convertDateNoRestingDays(event.date)}
                     </CDBBox>
                 </CDBBox>
             ))
