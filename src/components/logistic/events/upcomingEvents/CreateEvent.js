@@ -73,6 +73,7 @@ const CreateEvent = () => {
                     <h2 className="m-0 ms-3 fw-bold">Crear Evento</h2>
                 </Container>
                 <hr className="mx-3" />
+                
                 <Form>
                     <Container className="d-flex align-items-center" fluid>
                         <Stack gap={3} className="col-md-2">
