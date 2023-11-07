@@ -16,114 +16,106 @@ const Providers = () => {
                         </tr>
                     </CDBTableHeader>
                     <CDBTableBody>
-                        <>
-                            <tr >
-                                <td rowSpan={'4'} >Nombre de prueba</td>
-                                <td>Producto prueba 1</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 2</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 3</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>Total</td>
-                                <td>$10,908</td>
-                            </tr>
-                        </>
-                        <>
-                            <tr >
-                                <td rowSpan={'4'} >Nombre de prueba</td>
-                                <td>Producto prueba 1</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 2</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 3</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>Total</td>
-                                <td>$10,908</td>
-                            </tr>
-                        </>
-                        <>
-                            <tr >
-                                <td rowSpan={'4'} >Nombre de prueba</td>
-                                <td>Producto prueba 1</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 2</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 3</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>Total</td>
-                                <td>$10,908</td>
-                            </tr>
-                        </>
-                        <>
-                            <tr >
-                                <td rowSpan={'4'} >Nombre de prueba</td>
-                                <td>Producto prueba 1</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 2</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td>Producto prueba 3</td>
-                                <td>$1,212</td>
-                                <td>3</td>
-                                <td>$3,636</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>Total</td>
-                                <td>$10,908</td>
-                            </tr>
-                        </>
+                        <tr>
+                            <td rowSpan={'4'} >Nombre de prueba</td>
+                            <td>Producto prueba 1</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 2</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 3</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>$10,908</td>
+                        </tr>
+                        <tr >
+                            <td rowSpan={'4'} >Nombre de prueba</td>
+                            <td>Producto prueba 1</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 2</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 3</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>$10,908</td>
+                        </tr>
+                        <tr >
+                            <td rowSpan={'4'} >Nombre de prueba</td>
+                            <td>Producto prueba 1</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 2</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 3</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>$10,908</td>
+                        </tr>
+                        <tr >
+                            <td rowSpan={'4'} >Nombre de prueba</td>
+                            <td>Producto prueba 1</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 2</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td>Producto prueba 3</td>
+                            <td>$1,212</td>
+                            <td>3</td>
+                            <td>$3,636</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>$10,908</td>
+                        </tr>
                     </CDBTableBody>
                 </CDBTable>
                 Precio Total: $32,724

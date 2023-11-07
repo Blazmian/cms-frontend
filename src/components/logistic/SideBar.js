@@ -2,7 +2,6 @@ import { CDBSidebar, CDBSidebarContent, CDBSidebarFooter, CDBSidebarHeader, CDBS
 import { NavLink } from 'react-router-dom';
 
 const LogisticSideBar = () => {
-
     return (
         <>
             <div style={{ display: 'flex', overflow: 'scroll initial' }}>
@@ -31,9 +30,6 @@ const LogisticSideBar = () => {
                             <NavLink to="/logistica/inventario" className={({ isActive }) => isActive ? 'activeClicked' : ""}>
                                 <CDBSidebarMenuItem icon="archive">Inventario</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/logistica/socios" className={({ isActive }) => isActive ? 'activeClicked' : ""}>
-                                <CDBSidebarMenuItem icon="sync">Socios</CDBSidebarMenuItem>
-                            </NavLink>
                         </CDBSidebarMenu>
                     </CDBSidebarContent>
 
@@ -50,7 +46,6 @@ const LogisticSideBar = () => {
                             </NavLink>
                         </CDBSidebarMenu>
                     </CDBSidebarFooter>
-
                 </CDBSidebar>
             </div>
         </>

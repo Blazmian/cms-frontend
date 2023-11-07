@@ -1,28 +1,28 @@
 import { CDBBox, CDBIcon } from "cdbreact"
-import ClusterFooter from "./Footer"
-import {Container} from "react-bootstrap"
-import NavBarCMS from "./NavBar"
-import QRCode from "react-qr-code"
+import { Container } from "react-bootstrap"
+import NavBarCMS from "../../NavBar"
+import QRCode from "react-qr-code";
+
 
 const QRegisterEvent = () => {
     return (
         <>
-            <NavBarCMS/>
-                <Container style={{ height: '90vh' }} className="d-flex p-3" fluid>
-                    <Container>
-                        <h3 style={{textAlign:'center'}} className='fw-bold m-0'>Registro de evento</h3>
-                                <div style={{ marginBottom:"40px",height: "auto", marginTop:"22px", margin: "0 auto", maxWidth: 500, width: "100%" }}>
-                                    <QRCode
-                                    size={500}
-                                    alignContent={'center'}
-                                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                                    value="http://localhost:3000/logistica/inventario"
-                                    viewBox={`0 0 500 500`}
-                                    />
-                                </div>
-                    </Container>
+            <NavBarCMS />
+            <Container style={{ height: '90vh' }} className="d-flex p-3" fluid>
+                <Container>
+                    <h3 style={{ textAlign: 'center' }} className='fw-bold m-0'>Registro de evento</h3>
+                    <div style={{ marginBottom: "40px", height: "auto", marginTop: "22px", margin: "0 auto", maxWidth: 500, width: "100%" }}>
+                        <QRCode
+                            size={500}
+                            alignContent={'center'}
+                            style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                            value="http://localhost:3000/logistica/inventario"
+                            viewBox={`0 0 500 500`}
+                        />
+                    </div>
+                </Container>
 
-                        <Container style={{ width: '60%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center'}}>
+                <Container style={{ width: '60%', backgroundColor: '#242424', color: 'white', borderRadius: '20px', textAlign: 'center' }}>
                     <CDBBox display="flex" flex="fill" justifyContent="center" mt={5} mb={3}>
                         <img
                             src="https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg"
@@ -52,8 +52,7 @@ const QRegisterEvent = () => {
                         <h6 className="fw-normal ms-3 mb-0">https://meet.google.com/</h6>
                     </CDBBox>
                 </Container>
-                </Container>
-            <ClusterFooter/>
+            </Container>
         </>
     )
 }
