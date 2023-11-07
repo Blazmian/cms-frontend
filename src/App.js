@@ -8,7 +8,6 @@ import { Toaster } from 'react-hot-toast'
 import Login from './components/Login.js';
 import QRegisterEvent from './components/logistic/register-event/QRegisterEvent';
 
-
 const App = () => {
   return (
     <>

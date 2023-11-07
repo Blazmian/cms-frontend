@@ -20,6 +20,13 @@ export const ApiUrls = createContext({
     //Attendance
     getInteressedPersonByEvent: host + 'attendance-event/interessed-person-by-event/',
 
+    //Sponsors
+    createSponsor: host + 'sponsor',
+    getAllSponsors: host + 'sponsor/all',
+    getOneSponsor: host + 'sponsor/one/',
+    deleteSponsor: host + 'sponsor/delete/',
+    editSponsor: host + 'sponsor/update/',
+
     //Providers
     getAllProviders: host + 'provider/all',
     createProvider: host + 'provider',

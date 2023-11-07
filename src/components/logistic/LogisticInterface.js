@@ -7,6 +7,8 @@ import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
 import Providers from './providers/Providers';
 import CreateEvent from './events/upcomingEvents/CreateEvent';
+import ViewInventory from './inventory/ViewInventory';
+import ViewAssistants from './assistants/ViewAssistants';
 import SponsorList from './sponsors/SponsorList';
 import ViewSponsor from './sponsors/ViewSponsor';
 import ViewAssistants from './assistants/ViewAssistants';
@@ -16,13 +18,10 @@ import ViewObjectInventory from './inventory/ViewObjectInventory';
 import AssistantsInterface from './assistants/AssistantsInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
-<<<<<<< HEAD
 import ViewProvider from './providers/ViewProvider';
 import CreateProvider from './providers/CreateProvider';
 import EditProvider from './providers/EditProviders';
-=======
 import InventoryInterface from './inventory/InventoryInterface';
->>>>>>> 63267233d3d0397a6cbd0f27df4d185545b2ca7a
 
 const Logistic = () => {
 
