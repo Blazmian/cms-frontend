@@ -12,7 +12,6 @@ import SponsorInterface from './sponsors/SponsorInterface';
 import ShowSponsor from './sponsors/ShowSponsors';
 import UpcomingAssistants from './assistants/UpcomingAssistants';
 import ViewAssistants from './assistants/ViewAssistants';
-import PartnersInterface from './partners/PartnersInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
 
@@ -34,8 +33,6 @@ const Logistic = () => {
                         <Route path='/inventario/*' element={<ViewInventory />} />
                         <Route path='/patrocinadores/*' element={<SponsorInterface />} />
 
-
-                        <Route path='/socios/' element={<PartnersInterface />} />
 
 
                         <Route exact path='/patrocinadores/:id/*' element={<ShowSponsor />} />

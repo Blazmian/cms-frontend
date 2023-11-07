@@ -19,13 +19,6 @@ export const ApiUrls = createContext({
     //Attendance
     getInteressedPersonByEvent: host + 'attendance-event/interessed-person-by-event/',
 
-    //Partners
-    createPartner: host + 'partner',
-    getAllPartners: host + 'partner/all',
-    getOnePartner: host + 'partner/one/',
-    deletePartner: host + 'partner/delete/',
-    editPartner: host + 'partner/update/',
-    getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
 
     //Sponsors
     createSponsor: host + 'sponsor',
