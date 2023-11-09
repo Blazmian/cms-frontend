@@ -28,7 +28,7 @@ const ViewEvent = () => {
 
     const getEventInfo = async () => {
         const res = await axios.get(urls.getOneEvent + id)
-        setEventInformation(res.data)
+        setEventInformation(res.data.event)
     }
 
     const copyRegistrationLink = () => {

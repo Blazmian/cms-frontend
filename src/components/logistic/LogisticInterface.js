@@ -7,18 +7,14 @@ import NavBarCMS from '../NavBar';
 import ClusterFooter from '../Footer';
 import Providers from './providers/Providers';
 import CreateEvent from './events/upcomingEvents/CreateEvent';
-import ViewInventory from './inventory/ViewInventory';
 import ViewAssistants from './assistants/ViewAssistants';
-import SponsorList from './sponsors/SponsorList';
-import ViewSponsor from './sponsors/ViewSponsor';
-import ViewAssistants from './assistants/ViewAssistants';
+import SponsorInterface from './sponsors/SponsorInterface';
 import UpcomingProviders from './providers/UpcomingProviders';
 import ViewProvider from './providers/ViewProvider';
 import ViewObjectInventory from './inventory/ViewObjectInventory';
 import AssistantsInterface from './assistants/AssistantsInterface';
 import CanceledEvents from './events/canceledEvents/CanceledEvents';
 import ConcludedEvents from './events/concludedEvents/ConcludedEvents';
-import ViewProvider from './providers/ViewProvider';
 import CreateProvider from './providers/CreateProvider';
 import EditProvider from './providers/EditProviders';
 import InventoryInterface from './inventory/InventoryInterface';
@@ -41,11 +37,9 @@ const Logistic = () => {
                         <Route exact path='/proveedores/:id/' element={<ViewProvider />} />
                         <Route exact path='/editar-proveedor/:id/' element={<EditProvider />} />
 
-                        <Route path='/inventario/*' element={<ViewInventory />} />
                         <Route path='/inventario/*' element={<InventoryInterface />} />
                         <Route path='/inventario/:id/' element={<ViewObjectInventory />} />
-                        <Route path='/patrocinadores/*' element={<SponsorList />} />
-                        <Route exact path='/patrocinadores/:id/*' element={<ViewSponsor />} />
+                        <Route path='/patrocinadores/*' element={<SponsorInterface />} />
                         <Route exact path='/crear-proveedor/' element={<CreateProvider />} />
 
                         

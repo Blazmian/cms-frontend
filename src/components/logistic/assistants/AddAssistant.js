@@ -15,7 +15,7 @@ const AddAssistant = ({ show, handleClose, handleUpdateTable }) => {
     const urls = useContext(ApiUrls)
 
     const handleSubmit = async () => {
-        const res = await axios.post(urls.createInventory, {
+        const res = await axios.post(urls.createAssitant, {
             name: name,
             email: email,
             cellphone: cellphone,
