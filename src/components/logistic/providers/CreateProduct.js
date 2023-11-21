@@ -5,7 +5,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import ToastManager from "../../../tools/ToastManager"
 
-const CreateProduct = ({ show, handleClose, idProvider}) => {
+const CreateProduct = ({ show, handleClose, idProvider, handleUpdateTable}) => {
 
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
@@ -32,6 +32,7 @@ const CreateProduct = ({ show, handleClose, idProvider}) => {
             setPrice(0)
             setDescription('')
             toast.custom((t) => (<ToastManager title='Excelente!' text='Producto creado correctamente' type='success' />))   
+            handleUpdateTable()
             handleClose()
         }
     }

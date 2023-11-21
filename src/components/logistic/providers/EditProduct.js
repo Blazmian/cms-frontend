@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 import ToastManager from "../../../tools/ToastManager"
 import { CDBIcon } from "cdbreact"
 
-const EditProduct = ({show, handleClose, product }) => {
+const EditProduct = ({handleUpdateProduct, show, handleClose, product }) => {
 
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
@@ -35,7 +35,7 @@ const EditProduct = ({show, handleClose, product }) => {
         })
 
         toast.custom((t) => (<ToastManager title='Excelente!' text='producto modificado correctamente' type='success' />))
-        handleUpdatePartner()
+        handleUpdateProduct()
         handleClose()
     }
 
