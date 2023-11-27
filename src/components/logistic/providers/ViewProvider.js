@@ -123,7 +123,7 @@ const ViewProvider = ({}) => {
                 </CDBBox>
                 
                 <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                    {provider && provider.providerProduct ? <ViewProduct products={provider.providerProduct} /> : <></>}
+                    {provider && provider.providerProduct ? <ViewProduct products={provider.providerProduct} handleUpdateTable={getProvider} /> : <></>}
                 </div>
             </Container>
 

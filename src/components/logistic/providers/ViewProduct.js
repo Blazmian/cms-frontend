@@ -15,56 +15,51 @@ import { useNavigate } from "react-router-dom"
 
 const ViewProduct = ({ products, handleUpdateTable }) => {
 
-    const navigate = useNavigate('')
-
     const [showModalEdit, setShowModalEdit] = useState(false)
     const handleShowModalEdit = () => setShowModalEdit(true)
     const handleCloseModalEdit = () => setShowModalEdit(false)
 
     const urls = useContext(ApiUrls)
-    const [provider, setProvider] = useState({})
+    const [product, setProduct] = useState({})
 
-    const { id } = useParams()
-
-    const getProvider = async () => {
-        const res = await axios.get(urls.getOneProvider + id)
-        console.log(res.data)
-        setProvider(res.data)
+    const handleProducts = (product) => {
+        setProduct(product)
+        handleShowModalEdit()
     }
 
-    useEffect(() => {
-        console.log(products)
-    })
+    const confirmDeleteProduct = (product) => {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Precaución',
+            text: '¿Estas seguro de eliminar el producto ' + product.product + '?',
+            showCancelButton: true,
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true,
+            focusCancel: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteProduct(product.id)
+            } else if (result.isDenied) {
 
-      const confirmDeleteProduct = () => {
-          Swal.fire({
-              icon: 'warning',
-              title: 'Precaución',
-              text: '¿Estas seguro de eliminar el producto ' + provider.name + '?',
-              showCancelButton: true,
-              confirmButtonText: 'Eliminar',
-              cancelButtonText: 'Cancelar',
-              focusCancel: true,
-          }).then((result) => {
-              if (result.isConfirmed) {
-                  deleteProduct()
-              } else if (result.isDenied) {
-  
-              }
-          })
-      }
-  
-      const deleteProduct = async () => {
-          const res = await axios.delete(urls.deleteProduct + id)
-          toast.custom((t) => (<ToastManager title={'Excelente'} text={'Producto eliminado correctamente'} type={'success'} />))
-          navigate('/logistica/proveedores/' + id)
-      }
-      
+            }
+        })
+    }
+
+    const deleteProduct = async (id) => {
+        const res = await axios.delete(urls.deleteProduct + id)
+        if (res.data.affected > 0) {
+            toast.custom((t) => (<ToastManager title={'Excelente'} text={'Producto eliminado correctamente'} type={'success'} />))
+            handleUpdateTable()
+        } else {
+            toast.custom((t) => (<ToastManager title={'Error'} text={'No se pudo eliminar el producto'} type={'danger'} />))
+        }
+    }
 
     return (
 
         <Container fluid>
-            <EditProduct handleUpdateProduct={getProvider} show={showModalEdit} handleClose={handleCloseModalEdit} provider={provider} />
+            <EditProduct handleUpdateProduct={handleUpdateTable} show={showModalEdit} handleClose={handleCloseModalEdit} product={product} />
             <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
                 <CDBTable striped hover responsive maxHeight="34vh" scrollY className="mb-0">
                     <CDBTableHeader>
@@ -83,8 +78,8 @@ const ViewProduct = ({ products, handleUpdateTable }) => {
                                 <td >{product.description}</td>
                                 <td >{product.price}</td>
                                 <td>
-                                    <Button style={{ background: 'green', border: 'black' }} onClick={handleShowModalEdit}><CDBIcon icon="edit" /></Button>
-                                    <Button style={{ marginLeft: '10px', background: 'red', border: 'black' }} onClick={confirmDeleteProduct}><CDBIcon icon="eraser" /></Button>
+                                    <Button style={{ background: 'green', border: 'black' }} onClick={() => handleProducts(product)}><CDBIcon icon="edit" /></Button>
+                                    <Button style={{ marginLeft: '10px', background: 'red', border: 'black' }} onClick={() => confirmDeleteProduct(product)}><CDBIcon icon="eraser" /></Button>
                                 </td>
                             </tr>
                         </CDBTableBody>

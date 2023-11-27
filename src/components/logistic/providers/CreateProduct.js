@@ -31,9 +31,11 @@ const CreateProduct = ({ show, handleClose, idProvider, handleUpdateTable}) => {
             setName('')
             setPrice(0)
             setDescription('')
-            toast.custom((t) => (<ToastManager title='Excelente!' text='Producto creado correctamente' type='success' />))   
-            handleUpdateTable()
+            toast.custom((t) => (<ToastManager title='Excelente!' text='Producto creado correctamente' type='success' />)) 
+  
             handleClose()
+            handleUpdateTable()
+
         }
     }
 
