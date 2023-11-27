@@ -12,7 +12,7 @@ const NavBarCMS = () => {
                     height={50}
                     alt="Cluster Logo"
                 />
-                <h4 className="fw-600 ms-3 me-4 mb-0">Cluster Minero de Sonora</h4>
+                <h4 className="fw-600 ms-3 me-4 mb-0">Clúster Minero de Sonora</h4>
             </CDBBox>
         </Container>
     )

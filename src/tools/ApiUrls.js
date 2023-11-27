@@ -38,6 +38,7 @@ export const ApiUrls = createContext({
     createProduct: host + 'provider_product',
     editProduct: host + 'provider_product/update',
     getProduct: host + 'provider_product/all',
+
     //Assitants
     createAssitant: host + 'assistant',
     getAllAssistant : host + 'assistant/all',
@@ -62,6 +63,11 @@ export const ApiUrls = createContext({
     deletePartner: host + 'partner/delete/',
     editPartner: host + 'partner/update/',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
+
+    //Tracking
+    createTracking: host + 'tracking/',
+    getTrackingOfPartner: host + 'tracking/one/',
+    deleteTrack: host + 'tracking/delete/',
 
     //Detail Sponsors
     getSponsorsFromEvent: host + 'detail-sponsor/sponsors-from-event/',
