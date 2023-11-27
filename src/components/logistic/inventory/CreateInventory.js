@@ -4,7 +4,7 @@ import { Modal, Button } from "react-bootstrap"
 import { ApiUrls } from "../../../tools/ApiUrls"
 import axios from "axios"
 
-const CreateObject = ({ show, handleClose}) => {
+const CreateObject = ({ show, handleClose, handleUpdateTable }) => {
 
     const [object, setObject] = useState('')
     const [description, setDescription] = useState('')
@@ -27,14 +27,16 @@ const CreateObject = ({ show, handleClose}) => {
             setType('')
             setStatus('')
             handleClose()
+            handleUpdateTable()
         }
+        
     }
 
     return (
         <>
             <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Agregar objeto</Modal.Title>
+                    <Modal.Title><CDBIcon icon="cart-plus"/>Agregar objeto</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -47,11 +49,6 @@ const CreateObject = ({ show, handleClose}) => {
                         <label for="inputObject" class="col-sm-4 col-form-label">Tipo</label>
                         <div class="col-sm-8 mb-3">
                             <input type="text" value={type} onChange={(e) => setType(e.target.value)} class="form-control" id="ObjectType" placeholder="Tipo de objeto"></input>
-                        </div>
-
-                        <label for="inputObject" class="col-sm-4 col-form-label">Estado</label>
-                        <div class="col-sm-8 mb-3">
-                            <input type="text" value={status} onChange={(e) => setStatus(e.target.value)} class="form-control" id="inputObject" placeholder="Estado del objeto"></input>
                         </div>
 
                         <label for="descriptionObject" class="col-sm-4 col-form-label">Descripcion del objeto</label>
