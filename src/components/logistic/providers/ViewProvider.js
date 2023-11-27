@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
-import { CDBBox } from "cdbreact"
-import { Button, Container } from "react-bootstrap"
+import { CDBBox, CDBIcon } from "cdbreact"
+import { Button, Container, Stack, Row, Col } from "react-bootstrap"
 import { ApiUrls } from "../../../tools/ApiUrls"
 import axios, { } from 'axios'
 import Swal from "sweetalert2"
@@ -13,7 +13,7 @@ import EditProvider from "./EditProviders"
 import { CDBTable, CDBTableHeader, CDBTableBody } from 'cdbreact';
 import ViewProduct from "./ViewProduct"
 
-const ViewProvider = () => {
+const ViewProvider = ({}) => {
     const navigate = useNavigate('')
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
@@ -65,42 +65,67 @@ const ViewProvider = () => {
     return (
         <>
             <EditProvider handleUpdatePartner={getProvider} show={showModalEdit} handleClose={handleCloseModalEdit} provider={provider} />
-            <CreateProduct show={show} handleClose={handleClose} idProvider={id} />
-            <h2 style={{ margin: '10px' }}>Visualizar proveedor</h2>
-            <hr />
-            <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
-                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}>Nombre del proveedor:  </h5>
-                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.name}</h5>
-            </CDBBox>
-            <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
-                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}>Correo electrónico:  </h5>
-                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.email}</h5>
-            </CDBBox>
-            <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
-                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}>Teléfono:  </h5>
-                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.cellphone}</h5>
-            </CDBBox>
-            <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
-                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}>Descripción:  </h5>
-                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.description}</h5>
-            </CDBBox>
-
-            <hr />
-
-            <Container fluid className="p-3">
-                <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '-10px' }}>Productos</h2>
-                <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                    {provider && provider.providerProduct ? <ViewProduct products={provider.providerProduct} /> : <></>}
-
-                </div>
-
+            <CreateProduct show={show} handleClose={handleClose} idProvider={id} handleUpdateTable={getProvider}/>
+            <Container className="d-flex align-items-center mt-3" fluid >
+            <Button variant="dark" style={{ borderRadius: '30px', height: '50px', width: '50px' }} onClick={() => navigate('/logistica/proveedores')}>
+                        <CDBIcon icon="angle-left" size="2x" />
+                    </Button>
+            <h2 className="m-0 ms-3 fw-bold">Información del proveedor</h2>
             </Container>
 
+            <hr className="mx-3" />
 
-            <Button variant="secondary" style={{ marginLeft: '35px', marginTop: '15px' }} onClick={() => navigate('/logistica/proveedores')}>Regresar</Button>
-            <Button variant="primary" style={{ marginLeft: '700px', marginTop: '15px' }} onClick={confirmDeleteProvider}>Eliminar</Button>
-            <Button variant="primary" style={{ marginLeft: '15px', marginTop: '15px' }} onClick={handleShowModalEdit}>Editar</Button>
-            <Button onClick={handleShow} variant="primary" style={{ marginLeft: '15px', marginTop: '15px' }}>Agregar producto</Button>
+            <Container >
+            <Row>
+                <Col>
+                <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
+                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}><CDBIcon icon="user " />Nombre del proveedor:  </h5>
+                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.name}</h5>
+                </CDBBox>
+                </Col>
+                <Col>
+                <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
+                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}><CDBIcon icon="envelope " />Correo electrónico:  </h5>
+                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.email}</h5>
+                </CDBBox>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
+                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}><CDBIcon icon="phone " />Teléfono:  </h5>
+                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.cellphone}</h5>
+                </CDBBox>
+                </Col>
+                <Col>
+                <CDBBox style={{ fontSize: '13px', marginBottom: '10px' }} display='flex' flex='fill' alignItems='center'>
+                <h5 className={'fw-bold fs-5 me-3'} style={{ marginLeft: '35px' }}><CDBIcon icon="comment-dots " />Descripción:  </h5>
+                <h5 className='fs-5' style={{ textAlign: 'justify' }}>{provider.description}</h5>
+                </CDBBox>
+                </Col>
+            </Row>
+            </Container>
+            
+            <Stack direction='horizontal' gap={3} className='mx-5 mb-3 btn float-end'>
+            <Button variant='outline-danger' onClick={confirmDeleteProvider}>Eliminar</Button>
+            <Button variant='secondary' onClick={handleShowModalEdit}>Editar</Button>
+            </Stack>
+
+            <hr className="mx-3  " style={{marginTop:'70px'}} />
+
+            <Container fluid className="p-3">
+                <h2 style={{ fontSize: '25px', fontWeight: 'bold', marginTop: '-10px' }}>Productos</h2>
+                <CDBBox display='flex' alignItems="center" className='mb-3'>
+                <Button onClick={handleShow} variant='warning' className="btn float-end">
+                    <CDBIcon icon='plus' className='me-2'/>
+                    Agregar producto
+                </Button>
+                </CDBBox>
+                
+                <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
+                    {provider && provider.providerProduct ? <ViewProduct products={provider.providerProduct} handleUpdateTable={getProvider} /> : <></>}
+                </div>
+            </Container>
 
         </>
     )

@@ -9,11 +9,11 @@ const ShowInventory = ({ inventory }) => {
         <>
             <CDBTable striped hover responsive maxHeight="70vh" scrollY className="mb-0">
                 <CDBTableHeader>
-                    <tr>
-                        <th style={{ backgroundColor: '#AFAFAF' }}>Nombre</th>
-                        <th style={{ backgroundColor: '#AFAFAF' }}>Descripción</th>
-                        <th style={{ backgroundColor: '#AFAFAF' }}>Tipo</th>
-                        <th style={{ backgroundColor: '#AFAFAF' }}>Estado</th>
+                    <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Nombre</th>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Descripción</th>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Tipo</th>
+                        <th style={{ backgroundColor: 'black', color: 'white' }}>Estado</th>
                     </tr>
                 </CDBTableHeader>
                 <CDBTableBody>

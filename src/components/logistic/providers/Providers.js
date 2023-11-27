@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { CDBBox, CDBIcon } from "cdbreact"
-import { Button, Container } from "react-bootstrap"
 import { ApiUrls } from "../../../tools/ApiUrls"
 import axios, { } from 'axios'
 import ShowProviders from "./ShowProviders"
 import { useNavigate } from "react-router-dom"
 import ViewProvider from "./ViewProvider"
+import { Button, Stack } from 'react-bootstrap';
 
 const Providers = () => {
 
@@ -24,16 +24,15 @@ const Providers = () => {
 
     return (
         <>
-            <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
-                <CDBBox display='flex' flex='fill'>
-                    <h3 className='fw-bold m-0'>Listado de Proveedores</h3>
-                </CDBBox>
-                <CDBBox display='flex'>
-                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={() => navigate('/logistica/crear-proveedor')}>
-                        <CDBIcon icon='plus-circle' className='me-2' />Crear Proveedor
-                    </Button>
-                </CDBBox>
-            </CDBBox>
+        <Stack direction='horizontal' className='mt-3 mx-3'>
+                <CDBIcon icon='people-arrows' size='lg' className='me-2' />
+                <h3 className='fw-bold m-0 me-auto'>Proveedores</h3>
+                <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={() => navigate('/logistica/crear-proveedor')}>
+                    Crear proveedor
+                </Button>
+            </Stack>
+            <hr className='mx-3' />
+            
             <div style={{ maxHeight: '84vh', overflowY: 'auto' }}>
                 <ShowProviders providers={providers} />
             </div>

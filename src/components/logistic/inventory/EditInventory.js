@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react"
 import { Modal, Button } from "react-bootstrap"
 import { ApiUrls } from "../../../tools/ApiUrls"
 import axios from "axios"
+import { CDBIcon } from "cdbreact"
 
-const EditInventory = ({ show, handleClose, Inventory }) => {
+const EditInventory = ({ show, handleClose, Inventory, handleUpdateTable }) => {
 
     const [object, setObject] = useState('')
     const [description, setDescription] = useState('')
@@ -35,7 +36,7 @@ const EditInventory = ({ show, handleClose, Inventory }) => {
         })
 
         handleClose()
-
+        handleUpdateTable()
     }
 
 
@@ -43,7 +44,7 @@ const EditInventory = ({ show, handleClose, Inventory }) => {
         <>
             <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Editar Objeto</Modal.Title>
+                    <Modal.Title><CDBIcon icon='pen'/>Editar Objeto</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
