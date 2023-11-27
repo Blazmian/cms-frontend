@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CDBBox, CDBIcon } from 'cdbreact';
-import { Button, Container, Form, InputGroup } from 'react-bootstrap';
+import {CDBIcon } from 'cdbreact';
+import { Button, Form, InputGroup, Stack } from 'react-bootstrap';
 import AddAssistant from './AddAssistant';
 import axios from "axios";
 import { ApiUrls } from "../../../tools/ApiUrls";
@@ -21,7 +21,6 @@ const AssistantsInterface = () => {
 
     useEffect(() => {
         getAssistants()
-
     }, [])
 
     const getAssistants = async () => {
@@ -34,10 +33,9 @@ const AssistantsInterface = () => {
     return (
         <>
             <AddAssistant show={show} handleClose={handleClose} handleUpdateTable={getAssistants} />
-            <CDBBox display='flex' flex='fill' alignItems='center' className='mt-2 mx-3 mb-2'>
-                <CDBBox display='flex' flex='fill'>
-                    <h3 className='fw-bold m-0'>Listado del personal auxiliar</h3>
-                </CDBBox>
+            <Stack direction='horizontal' className='mt-3 mx-3'>
+                <CDBIcon icon="users" size='lg' className='me-2' />
+                <h3 className='fw-bold m-0 me-auto'>Personal auxiliar</h3>
 
                 <Form style={{ marginRight: '15px', marginTop: '10px' }}>
                     <InputGroup style={{ width: '600px' }}>
@@ -46,12 +44,11 @@ const AssistantsInterface = () => {
                     </InputGroup>
                 </Form>
 
-                <CDBBox display='flex'>
-                    <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={handleShow}>
-                        <CDBIcon icon='plus-circle' className='me-2' />Agregar auxiliar
-                    </Button>
-                </CDBBox>
-            </CDBBox>
+                <Button variant='success' style={{ borderRadius: '15px', fontWeight: 'bold' }} onClick={handleShow}>
+                    <CDBIcon icon="user-plus" className='me-2' />Agregar auxiliar
+                </Button>
+            </Stack>
+            <hr className='mx-3' />
             <div style={{ maxHeight: '84vh', overflowY: 'auto' }}>
             <ShowAssistants assistants={assitants}/>
             </div>
