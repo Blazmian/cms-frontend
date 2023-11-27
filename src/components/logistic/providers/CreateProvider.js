@@ -95,122 +95,12 @@ const CreateProvider = () => {
                         </Container>
                     </Container>
                 </Form>
-
-                <hr className="mx-3"/>
-                <Form className="p-3" onSubmit={handleSubmit}>
-                <h2 style={{fontSize:'20px', fontWeight:'bold'}}>Detalles del producto</h2>
-                    <Container className="d-flex align-items-center" fluid>
-                        <Stack gap={3} className="col-md-2">
-                            <img
-                                src={'https://www.foronuclear.org/wp-content/uploads/2014/03/minas-uranio-854x465.jpg'}
-                                width={150}
-                                height={150}
-                                style={{ borderRadius: '100px' }}
-                                alt='Logo Evento'
-                                className="mx-auto"
-                            />
-                            <Button variant="outline-secondary" style={{ borderRadius: '20px' }}>Seleccionar Foto</Button>
-                        </Stack>
-                        
-                        <Container className="mx-5">
-                        <div class="row">
-                            <div class="col">
-                            <Form.Group as={Row}>
-                            <Form.Label column sm='3'>Nombre del producto</Form.Label>
-                            <Col>
-                            <Form.Control type="text"  placeholder=""></Form.Control>  
-                            </Col>
-                            </Form.Group>
-                            </div>
-                            <div class="col">
-                            <Form.Group as={Row}>
-                            <Form.Label column sm='3'>Precio</Form.Label>
-                            <Col>
-                            <Form.Control type="number"  placeholder="" ></Form.Control>
-                            </Col>
-                            </Form.Group>
-                            </div>
-                        </div>
-
-                            <Form.Group as={Row}>
-                            <Form.Label column sm='auto'>Descripción</Form.Label>
-                                <Col>
-                                    <Form.Control as="textarea" rows={2} placeholder="" ></Form.Control>
-                                </Col>
-                                </Form.Group>
-
-                        </Container>
-                    </Container>
-                </Form>
-
-
-                <Container fluid className="p-3">
-                <h2 style={{fontSize:'20px', fontWeight:'bold', marginTop:'-10px'}}>Productos</h2>
-                <div style={{ borderRadius: '10px', overflow: 'hidden'}}>
-                <CDBTable striped hover responsive maxHeight="22vh" scrollY className="mb-0">
-                    <CDBTableHeader>
-                        <tr style={{ textAlign: 'center', backgroundColor: '#1D3A69', color: 'white' }}>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Producto</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Descripción</th>
-                            <th style={{ backgroundColor: 'black', color: 'white' }}>Precio</th>
-                        </tr>
-                    </CDBTableHeader>
-                    <CDBTableBody>
-                        <tr >
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de prueba</td>
-                            <td>Empresa Prueba A.C.</td>
-                            <td>correoprueba@prueba.com</td>
-                        </tr>
-                    </CDBTableBody>
-                </CDBTable>
                 
-                </div>
-            </Container>
             <div style={{marginTop:'-5px'}}>
                 <hr className="mx-3"/>
                 </div>
-                <Button variant="secondary">Cancelar</Button>
-                    <Button variant="primary" type="submit" onClick={handleSubmit}>Crear proveedor</Button>
+                <Button variant="secondary" className='mb-3'>Cancelar</Button>
+                    <Button type="submit" onClick={handleSubmit} variant='warning' className="btn float-end">Crear proveedor</Button>
             </Container>
 
         </>
