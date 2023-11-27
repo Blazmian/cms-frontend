@@ -66,6 +66,11 @@ export const ApiUrls = createContext({
     editPartner: host + 'partner/update/',
     getPartnersBySocialReason: host + 'partner/partners-by-comercial-name/',
 
+    //Tracking
+    createTracking: host + 'tracking/',
+    getTrackingOfPartner: host + 'tracking/one/',
+    deleteTrack: host + 'tracking/delete/',
+
     //Detail Sponsors
     getSponsorsFromEvent: host + 'detail-sponsor/sponsors-from-event/',
 })

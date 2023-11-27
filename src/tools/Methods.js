@@ -7,13 +7,15 @@ export const getRelativeTime = (dateTime) => {
   const hours = Math.floor(timeDifference / (1000 * 60 * 60))
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
+  const differenceDays = currentDate.getDay() - targetDate.getDay()
+
   if (minutes < 1) {
     return "Hace menos de un minuto"
   } else if (minutes < 60) {
     return `Hace ${minutes} ${minutes === 1 ? "minuto" : "minutos"}`
-  } else if (hours < 24) {
+  } else if (hours < 24 && differenceDays === 0) {
     return `Hace ${hours} ${hours === 1 ? "hora" : "horas"}`
-  } else if (days < 2) {
+  } else if (days < 2 && differenceDays === 1) {
     return `Ayer a las ${targetDate.toLocaleTimeString()}`
   } else {
     return `Hace ${days} ${days === 1 ? "día" : "días"}`
@@ -67,6 +69,18 @@ export const calculateDifferenceInDays = (date1, date2) => {
 const daysOfTheWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const monthsOfTheYear = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
 
+export const convertDateWithTime = (datetime) => {
+  if (datetime) {
+    const dateObj = new Date(datetime)
+    const dayWeek = daysOfTheWeek[dateObj.getDay()]
+    const dayMonth = dateObj.getDate()
+    const month = monthsOfTheYear[dateObj.getMonth()]
+    const year = dateObj.getFullYear()
+    return `${dayWeek} ${dayMonth} de ${month} de ${year}`
+  }
+  return ''
+}
+
 export const convertDateNoRestingDays = (date) => {
   if (date) {
     const dateArray = date.toString().split('-')
@@ -99,4 +113,13 @@ export const convertDate = (date) => {
     return `${formatDate} (${restingDays})`
   }
   return ''
+}
+
+export const truncateParagraph = (text, maxLength) => {
+  if (!text) {
+    return "Sin notas adicionales."
+  }
+
+  const truncatedText = text.toString().length > maxLength ? `${text.toString().substring(0, maxLength)}...` : text
+  return truncatedText
 }

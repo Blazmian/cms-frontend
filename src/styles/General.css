@@ -8,6 +8,28 @@
     cursor: pointer;
 }
 
+.list-result2 {
+    background-color: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    border-radius: 15px;
+}
+
+.list-result2:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.10);
+}
+
+.list-result3 {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.list-result3:hover {
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    transform: scale(1.01);
+}
+
 .time-remaining-div {
     width: 10px;
     height: 30px;
